@@ -33,6 +33,19 @@
   .labs .it b{font-weight:700}.labs .it span{display:block;color:#B8B4A8;font-size:13.5px;margin-top:2px}
   footer{padding:54px 0 60px}.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
   .foot .meta{font-size:14px;color:var(--ink-3)}.foot .meta b{color:var(--ink-2)}
+  /* engagement ladder */
+  .ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+  .rung{background:var(--white);border:1px solid var(--paper-edge);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:24px 22px;position:relative;overflow:hidden}
+  .rung::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--ink)}
+  .rung.e::before{background:var(--ember)}.rung.t::before{background:var(--teal)}
+  .rung .rk{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+  .rung.e .rk{color:var(--ember)}.rung.t .rk{color:var(--teal)}
+  .rung .rt{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em;margin:9px 0 5px}
+  .rung .rp{font-weight:800;font-size:14px;color:var(--ink);margin-bottom:9px}
+  .rung .rd{font-size:14px;color:var(--ink-3);line-height:1.46}
+  .pricing-note{font-size:14px;color:var(--ink-3);margin-top:16px;max-width:62ch}
+  .pricing-note b{color:var(--ink-2)}
+  @media(max-width:680px){.ladder{grid-template-columns:1fr!important}}
 </style>
 </head>
 <body>
@@ -50,6 +63,33 @@
   <h1 class="display rise d2" style="max-width:15ch;margin-top:8px">The whole menu — you only ever start with one thing.</h1>
   <p class="lead rise d3" style="max-width:50ch;margin-top:18px">Two halves of one studio. Pick a front door (★) — a deck or a $499 audit — and the rest follows once we've delivered something concrete.</p>
 </header>
+
+<!-- ENGAGEMENT LADDER + PRICING -->
+<section class="wrap" style="padding-top:0;padding-bottom:0">
+  <div class="eyebrow">Engagement &amp; pricing</div>
+  <h2 class="display" style="margin-top:8px;max-width:20ch;font-size:clamp(26px,3.2vw,36px)">Small first — then only what earns its place.</h2>
+  <div class="ladder">
+    <div class="rung e">
+      <div class="rk">Wedge · start here</div>
+      <div class="rt">A small, concrete win</div>
+      <div class="rp">$499 audit · or a deck, per slide</div>
+      <div class="rd">Low risk, fast — the audit lands in a week. Nothing to commit to.</div>
+    </div>
+    <div class="rung t">
+      <div class="rk">Project</div>
+      <div class="rt">Build what it surfaces</div>
+      <div class="rp">From $1,500 · fixed scope</div>
+      <div class="rd">The bot, migration, brand kit, or deck system — quoted to a fixed scope before any work begins.</div>
+    </div>
+    <div class="rung">
+      <div class="rk">Monthly</div>
+      <div class="rt">Stay lean, stay sharp</div>
+      <div class="rp">Scoped partnership · a few slots</div>
+      <div class="rd">Ongoing design + systems on a monthly partnership. Custom-scoped, only a couple at a time.</div>
+    </div>
+  </div>
+  <p class="pricing-note"><b>Custom per client</b> — you get a fixed scope and price before any work starts, never a surprise invoice. Everything in the menu below slots into one of these three rungs.</p>
+</section>
 
 <section class="wrap" style="padding-top:0">
   <div class="cols">

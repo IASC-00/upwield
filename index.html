@@ -137,6 +137,12 @@
   .nx h4{font-size:17px;font-weight:700;margin:9px 0 6px}
   .nx p{font-size:14.5px;color:var(--ink-3);line-height:1.5}
 
+  /* engagement terms strip */
+  .terms{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;padding-top:26px;border-top:1px solid var(--paper-edge)}
+  .t-item{font-size:14px;color:var(--ink-3);line-height:1.5}
+  .t-item .k{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+  .t-item b{color:var(--ink-2);font-weight:700}
+
   /* footer */
   footer{padding:46px 0 60px}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
@@ -145,7 +151,7 @@
   .foot .meta b{color:var(--ink-2);font-weight:700}
 
   @media(max-width:680px){
-    .cases,.ships,.next{grid-template-columns:1fr!important}
+    .cases,.ships,.next,.terms{grid-template-columns:1fr!important}
     .maker{grid-template-columns:1fr!important;text-align:center}
     .maker .ava{margin:0 auto}
     .maker .bio .lead2{max-width:none}
@@ -227,17 +233,22 @@
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- HOW IT WORKS + PRICING -->
 <section id="how" style="background:var(--paper-2)">
   <div class="wrap">
-    <div class="eyebrow">How it works</div>
-    <h2 class="display" style="margin-top:8px;max-width:20ch">Start small. We earn the next thing.</h2>
-    <p class="lead muted" style="margin-top:14px;max-width:54ch">No long contract to begin. One cheap, concrete project — then the work tells us what's worth building next.</p>
+    <div class="eyebrow">How it works · what it costs</div>
+    <h2 class="display" style="margin-top:8px;max-width:20ch">Start small. The work earns the next thing.</h2>
+    <p class="lead muted" style="margin-top:14px;max-width:56ch">No long contract to begin. One cheap, concrete project — then the work tells us what's worth building next. Three rungs up the ladder:</p>
     <div class="steps">
-      <div class="step"><div class="n">1</div><h3>Start with a wedge</h3><p>A $499 audit, or a single deck. Low risk, fast turnaround, nothing to commit to.</p></div>
-      <div class="step"><div class="n">2</div><h3>Get something concrete</h3><p>A ranked plan with hours and dollars saved — or a deck you can present Monday.</p></div>
-      <div class="step"><div class="n">3</div><h3>We build what it surfaces</h3><p>The bot, the migration, the next deck. You only fund what the first project proved was worth it.</p></div>
-      <div class="step"><div class="n">4</div><h3>Stay lean</h3><p>An optional monthly retainer keeps the systems running and the work looking sharp.</p></div>
+      <div class="step"><div class="n">1</div><h3>Start with a wedge</h3><p>A <b>$499</b> audit, or a single deck priced per slide. Low risk, nothing to commit to — and the audit lands in <b>one week</b>.</p></div>
+      <div class="step"><div class="n">2</div><h3>Get something concrete</h3><p>A ranked plan with hours and dollars saved — or a deck you can present Monday. Yours to keep either way.</p></div>
+      <div class="step"><div class="n">3</div><h3>Build what it surfaces</h3><p>The bot, the migration, the brand kit, the deck system — a <b>fixed-scope quote, from $1,500</b>, before any work starts. You only fund what the wedge proved out.</p></div>
+      <div class="step"><div class="n">4</div><h3>Stay lean</h3><p>An optional <b>monthly partnership</b> keeps the systems running and the work sharp. Custom-scoped, only a couple of slots at a time.</p></div>
+    </div>
+    <div class="terms">
+      <div class="t-item"><span class="k">Turnaround</span> Audit in a week · decks in days · <b>replies within one business day</b>.</div>
+      <div class="t-item"><span class="k">Pricing</span> Custom per client. You get a <b>fixed scope and price before any work</b> — never a surprise invoice.</div>
+      <div class="t-item"><span class="k">Availability</span> A one-person studio — <b>only a couple of projects run at once</b>, by design.</div>
     </div>
   </div>
 </section>
