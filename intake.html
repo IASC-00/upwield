@@ -268,7 +268,7 @@
       <div class="bigwedge"></div>
       <h2 id="doneTtl">Got it.</h2>
       <p id="doneMsg">Your answers are in. Expect a reply by email within one business day with the fastest next step.</p>
-      <div class="row">
+      <div class="row" id="doneRow">
         <a class="btn btn-ink" href="index.html#work">See the work <span class="arr">&rarr;</span></a>
         <a class="btn btn-ghost" href="index.html">Back to home</a>
       </div>
@@ -289,10 +289,12 @@
 <script>
 /* ============================================================
    Upwield intake wizard — vanilla JS, no deps.
-   To GO LIVE: replace YOUR_FORM_ID below with a real Formspree
-   form id (formspree.io → new form). Until then it runs in DEMO
-   mode: it validates + shows the success state, and logs the
-   payload to the console instead of sending.
+   Submit path:
+   • If a Formspree form id is set below (replace YOUR_FORM_ID),
+     answers POST straight to the inbox — seamless, server-side.
+   • Until then it falls back to a prefilled mailto: to
+     hello@upwield.com, so a real submission is NEVER lost — it
+     opens the visitor's email with every answer filled in.
    ============================================================ */
 const ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // SWAP: real Formspree id
 const DEMO = ENDPOINT.includes("YOUR_FORM_ID");
@@ -349,31 +351,64 @@ function validStep(){
   return true;
 }
 
-function showSuccess(){
-  const name = (form.elements['name'].value||'').trim().split(' ')[0];
+function buildMailto(){
+  const g = n => (((form.elements[n]||{}).value)||'').trim();
+  const pick = n => ((form.querySelector('input[name="'+n+'"]:checked')||{}).value||'—');
+  const needL = PNAME[pick('need')] || '—';
+  const body = [
+    'New project inquiry via the Upwield site.','',
+    'What they need: '+needL,
+    'The situation: '+(g('trigger')||'—'),
+    'Organization: '+(g('org_name')||'—'),
+    'What they do: '+(g('org_what')||'—'),
+    'Team size: '+pick('team_size'),
+    'Timeline: '+pick('timeline'),
+    'Budget: '+(g('budget')||'—'),'',
+    'Name: '+(g('name')||'—'),
+    'Email: '+(g('email')||'—')
+  ].join('\n');
+  const subj = 'Upwield project — '+(g('name')||'inquiry')+' ('+needL+')';
+  return 'mailto:hello@upwield.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+}
+
+function showSuccess(mode){
+  const name = ((((form.elements['name']||{}).value))||'').trim().split(' ')[0];
   const need = (form.querySelector('input[name="need"]:checked')||{}).value;
   document.getElementById('progress').style.display='none';
   form.style.display='none';
-  const done = document.getElementById('done');
-  document.getElementById('doneTtl').textContent = name ? `Got it — thanks, ${name}.` : 'Got it.';
-  if(need==='sharp') document.getElementById('doneMsg').textContent = "We'll reply by email within one business day with the fastest way to sharpen how you show up — a real scope, not a sales call.";
-  else if(need==='lean') document.getElementById('doneMsg').textContent = "We'll reply by email within one business day with the fastest busywork to kill first — a real scope, not a sales call.";
-  done.classList.add('show');
+  const ttl = document.getElementById('doneTtl');
+  const msg = document.getElementById('doneMsg');
+  const row = document.getElementById('doneRow');
+  if(mode==='mailto'){
+    ttl.textContent = name ? `Last step, ${name} —` : 'One last step —';
+    msg.textContent = "Your answers are ready. Open your email (everything's filled in already) and hit send — you'll hear back within a business day. Or write hello@upwield.com.";
+    row.innerHTML = '<a class="btn btn-accent" id="mailtoBtn" href="#">Open email &amp; send <span class="arr">&rarr;</span></a><a class="btn btn-ghost" href="index.html">Back to home</a>';
+    document.getElementById('mailtoBtn').href = buildMailto();
+  } else {
+    ttl.textContent = name ? `Got it — thanks, ${name}.` : 'Got it.';
+    msg.textContent = need==='sharp'
+      ? "We'll reply by email within one business day with the fastest way to sharpen how you show up — a real scope, not a sales call."
+      : need==='lean'
+      ? "We'll reply by email within one business day with the fastest busywork to kill first — a real scope, not a sales call."
+      : "Expect a reply by email within one business day with the fastest next step.";
+    row.innerHTML = '<a class="btn btn-ink" href="index.html#work">See the work <span class="arr">&rarr;</span></a><a class="btn btn-ghost" href="index.html">Back to home</a>';
+  }
+  document.getElementById('done').classList.add('show');
   card.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
 async function send(){
   const data = new FormData(form);
   data.set('_subject', `New Upwield intake — ${data.get('name')||'someone'} (${PNAME[data.get('need')]||'—'})`);
-  if(DEMO){ console.warn('[Upwield intake · DEMO — connect Formspree to receive these]', Object.fromEntries(data)); showSuccess(); return; }
+  if(DEMO){ showSuccess('mailto'); return; }   // no Formspree id yet → prefilled email, nothing lost
   next.disabled = true; next.textContent = 'Sending…';
   try{
     const res = await fetch(ENDPOINT, {method:'POST', body:data, headers:{'Accept':'application/json'}});
     if(!res.ok) throw new Error('bad');
-    showSuccess();
+    showSuccess('sent');
   }catch(e){
     next.disabled = false; next.innerHTML = 'Send it <span class="arr">&rarr;</span>';
-    fail("Something hiccuped on our end — email hello@upwield.com and we'll pick it up.");
+    fail("Something hiccuped — email hello@upwield.com and we'll pick it up.");
   }
 }
 
