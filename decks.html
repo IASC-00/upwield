@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deck Production — Upwield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="upwield.css">
+<style>
+  body{background:#e7e7ea}
+  .sheet{padding:.44in .62in}
+  .topbar{display:flex;height:7px}.topbar i{flex:1}.topbar .e{background:var(--ember)}.topbar .t{background:var(--teal)}
+  .sheet .head{display:flex;justify-content:space-between;align-items:flex-start;margin-top:8px}
+  .sheet .head .wordmark{font-size:22px}
+  .label{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
+  h1.display{font-size:44px;margin-top:16px;max-width:15ch}
+  .sub{font-size:18px;color:var(--ink-2);line-height:1.5;margin-top:16px;max-width:55ch}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:38px;margin-top:24px}
+  .blk h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ember);font-weight:800;margin-bottom:14px}
+  .get{list-style:none}
+  .get li{display:flex;gap:11px;padding:9px 0;font-size:15.5px;line-height:1.4}
+  .steps2{display:flex;flex-wrap:wrap;gap:9px}
+  .pill{font-weight:700;font-size:14px;padding:9px 15px;border-radius:var(--r-pill);background:var(--paper-2);border:1px solid var(--paper-edge)}
+  .pill .ar{color:var(--ember);margin:0 2px}
+  .work{margin-top:22px}
+  .work h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ember);font-weight:800;margin-bottom:14px}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .dk{aspect-ratio:16/10;border-radius:var(--r-md);overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:13px 13px 11px;box-shadow:var(--shadow-sm)}
+  .dk .tb{position:absolute;top:0;left:0;right:0;height:4px;display:flex}.dk .tb i{flex:1}
+  .dk .cat{font-size:8.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+  .dk .ttl{font-family:var(--display);font-weight:700;font-size:13.5px;line-height:1.12;letter-spacing:-.01em;margin-top:5px}
+  .dk .foot2{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:.03em;opacity:.72;margin-top:auto}
+  .dk .dot{width:6px;height:6px;flex-shrink:0;clip-path:polygon(50% 0,100% 100%,0 100%)}
+  .dk.dark{background:var(--ink);color:var(--paper)}.dk.dark .cat{color:var(--teal)}
+  .dk.light{background:var(--white);color:var(--ink);border:1px solid var(--paper-edge)}.dk.light .cat{color:var(--ember)}
+  .priceband{display:flex;align-items:center;gap:24px;margin-top:20px;background:var(--ink);color:var(--paper);border-radius:var(--r-lg);padding:20px 30px}
+  .priceband .big{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05;color:#fff;white-space:nowrap}
+  .priceband p{color:#CFCBC0;font-size:14.5px;line-height:1.45;max-width:46ch}
+  .foot{display:flex;justify-content:space-between;align-items:center;margin-top:30px;padding-top:20px;border-top:1px solid var(--paper-edge)}
+  .foot .cta{font-weight:800;font-size:16px;color:var(--ink)}
+  .foot .meta{font-size:13px;color:var(--ink-3)}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="topbar"><i class="e"></i><i class="t"></i></div>
+  <div class="head">
+    <a class="wordmark">upwield<span class="wedge"></span></a>
+    <span class="chip chip-ember">Look sharp</span>
+  </div>
+  <div class="label">Deck Production</div>
+  <h1 class="display">Decks that look like a studio made them.</h1>
+  <p class="sub">Investor, board, and advocacy decks — one focal point per slide, no bullet soup, no template look. Priced by the slide, scoped to your deck.</p>
+
+  <div class="two">
+    <div class="blk">
+      <h3>What you get</h3>
+      <ul class="get">
+        <li><span class="bullet-wedge" style="background:var(--ember)"></span> A clear story, built to earn the room</li>
+        <li><span class="bullet-wedge" style="background:var(--ember)"></span> Custom design — every slide, not a template</li>
+        <li><span class="bullet-wedge" style="background:var(--ember)"></span> Presentation-ready PPTX + PDF</li>
+        <li><span class="bullet-wedge" style="background:var(--ember)"></span> Two to three revision rounds</li>
+      </ul>
+    </div>
+    <div class="blk">
+      <h3>Process · 1–2 weeks</h3>
+      <div class="steps2">
+        <span class="pill">Content intake</span>
+        <span class="pill">Structure</span>
+        <span class="pill">Design</span>
+        <span class="pill">Revisions</span>
+      </div>
+      <p style="font-size:14.5px;color:var(--ink-3);margin-top:16px;line-height:1.5">Bounded and repeatable — a deck is a few focused days, not a month of churn.</p>
+    </div>
+  </div>
+
+  <div class="work">
+    <h3>Representative work</h3>
+    <div class="tiles">
+      <div class="dk dark">
+        <div class="tb"><i style="background:var(--teal)"></i><i style="background:var(--teal-deep)"></i></div>
+        <div><div class="cat">Strategy</div><div class="ttl">Keeping public dollars local</div></div>
+        <div class="foot2"><span class="dot" style="background:var(--teal)"></span> Procurement strategy</div>
+      </div>
+      <div class="dk dark">
+        <div class="tb"><i style="background:var(--ember)"></i><i style="background:var(--ember-deep)"></i></div>
+        <div><div class="cat" style="color:var(--ember)">Briefing</div><div class="ttl">The local case for food security</div></div>
+        <div class="foot2"><span class="dot" style="background:var(--ember)"></span> Food-policy briefing</div>
+      </div>
+      <div class="dk light">
+        <div class="tb"><i style="background:var(--ink)"></i><i style="background:var(--ember)"></i></div>
+        <div><div class="cat">Advocacy</div><div class="ttl">Built to move the room.</div></div>
+        <div class="foot2"><span class="dot" style="background:var(--ember)"></span> Advocacy campaign</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="priceband">
+    <div class="big">Priced by<br>the slide</div>
+    <p>Custom per project — tell us the deck in the intake and we'll scope it by message. Tools cost nothing, so what you pay is the craft, not software.</p>
+  </div>
+
+  <div class="foot">
+    <div class="cta">See three samples → then start your deck.</div>
+    <div class="meta">upwield · Philadelphia · hello@upwield.com</div>
+  </div>
+</div>
+</body>
+</html>

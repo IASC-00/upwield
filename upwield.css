@@ -1,0 +1,114 @@
+/* ============================================================
+   UPWIELD — brand kit / design system
+   Ink & Ember · Bricolage Grotesque + Hanken Grotesk
+   Every Upwield surface (web + PDF) inherits this file.
+   ============================================================ */
+
+:root{
+  /* core palette — locked 2026-06-13 */
+  --ink:#16181D;          /* near-black */
+  --ink-2:#2C2F37;        /* softened ink for body text */
+  --ink-3:#5A5E68;        /* muted */
+  --paper:#F5F2EA;        /* warm paper */
+  --paper-2:#EFEBE0;      /* card / inset */
+  --paper-edge:#E3DDCE;   /* hairline on paper */
+  --ember:#F15A38;        /* LOOK SHARP accent */
+  --ember-deep:#D2451F;
+  --teal:#11998A;         /* RUN LEAN accent */
+  --teal-deep:#0C7468;
+  --white:#FFFFFF;
+
+  /* type */
+  --display:'Bricolage Grotesque', Georgia, serif;
+  --body:'Hanken Grotesk', system-ui, sans-serif;
+
+  /* rhythm */
+  --r-sm:8px; --r-md:14px; --r-lg:22px; --r-pill:999px;
+  --shadow-sm:0 1px 2px rgba(22,24,29,.06), 0 6px 18px rgba(22,24,29,.05);
+  --shadow-lg:0 2px 6px rgba(22,24,29,.08), 0 24px 60px rgba(22,24,29,.12);
+  --maxw:1100px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.55;
+  font-size:17px;
+  /* subtle paper grain for warmth + depth (not a flat fill) */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+
+/* ---------- type ---------- */
+.display{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.02em;color:var(--ink)}
+h1.display{font-size:clamp(48px,7.4vw,92px)}
+h2.display{font-size:clamp(32px,4.4vw,52px);letter-spacing:-.025em}
+h3.display{font-size:clamp(22px,2.4vw,28px);letter-spacing:-.015em}
+.eyebrow{font-family:var(--body);font-weight:700;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.lead{font-size:clamp(18px,2vw,22px);color:var(--ink-2);line-height:1.5}
+.muted{color:var(--ink-3)}
+em.ember{font-style:normal;color:var(--ember)}
+em.teal{font-style:normal;color:var(--teal)}
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+section{padding:92px 0}
+.rule{height:1px;background:var(--paper-edge);border:0}
+
+/* ---------- wordmark + wedge motif ---------- */
+.wordmark{font-family:var(--display);font-weight:700;font-size:25px;letter-spacing:-.02em;color:var(--ink);
+  display:inline-flex;align-items:baseline;text-decoration:none}
+.wordmark .wedge{margin-left:3px}
+.wedge{display:inline-block;width:.62em;height:.62em;
+  background:var(--ember);
+  clip-path:polygon(50% 0,100% 100%,0 100%);   /* upward triangle */
+  transform:translateY(-.04em)}
+.wedge.teal{background:var(--teal)}
+.bullet-wedge{display:inline-block;width:9px;height:9px;margin-right:10px;
+  clip-path:polygon(50% 0,100% 100%,0 100%);vertical-align:baseline}
+
+/* ---------- buttons ---------- */
+.btn{font-family:var(--body);font-weight:700;font-size:15px;letter-spacing:.01em;
+  display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:var(--r-pill);
+  border:0;cursor:pointer;text-decoration:none;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn .arr{transition:transform .2s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+.btn-ember{background:var(--ember);color:#fff;box-shadow:0 8px 22px rgba(241,90,56,.28)}
+.btn-ember:hover{background:var(--ember-deep)}
+.btn-teal{background:var(--teal);color:#fff;box-shadow:0 8px 22px rgba(17,153,138,.26)}
+.btn-teal:hover{background:var(--teal-deep)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);box-shadow:none}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- pillar chips ---------- */
+.chip{font-weight:800;font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+  padding:7px 14px;border-radius:var(--r-pill);display:inline-block}
+.chip-ember{background:var(--ember);color:#fff}
+.chip-teal{background:var(--teal);color:#fff}
+
+/* ---------- cards ---------- */
+.card{background:var(--white);border:1px solid var(--paper-edge);border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
+
+/* ---------- reveal on load ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.rise{animation:rise .7s var(--ease) both}
+.d1{animation-delay:.06s}.d2{animation-delay:.14s}.d3{animation-delay:.22s}
+.d4{animation-delay:.30s}.d5{animation-delay:.38s}.d6{animation-delay:.46s}
+
+/* ---------- one-pager sheet + print/PDF ---------- */
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{width:8.5in;min-height:11in;margin:30px auto;background:var(--paper);
+  padding:.62in .64in;position:relative;box-shadow:var(--shadow-lg);overflow:hidden}
+.sheet .topbar{position:absolute;top:0;left:0;right:0}
+@page{size:Letter;margin:0}
+@media print{
+  body{background:#fff}
+  .sheet{margin:0;box-shadow:none;width:8.5in;min-height:11in}
+  .rise{animation:none}
+  .no-print{display:none!important}
+}

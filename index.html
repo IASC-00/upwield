@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upwield — design + AI systems studio · Philadelphia</title>
+<meta name="description" content="Upwield is a one-person studio that makes small organizations look sharp and run lean — design and AI systems under one roof.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="upwield.css">
+<style>
+  /* page-specific composition */
+  .topbar{display:flex;height:5px}
+  .topbar i{flex:1}.topbar .e{background:var(--ember)}.topbar .t{background:var(--teal)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  nav .links{display:flex;gap:30px;font-weight:600;font-size:15px}
+  nav .links a{color:var(--ink-2);text-decoration:none}
+  nav .links a:hover{color:var(--ink)}
+
+  /* hero */
+  .hero{padding:64px 0 70px;position:relative;overflow:hidden}
+  .hero .big-wedge{position:absolute;right:-40px;top:30px;width:340px;height:340px;
+    background:linear-gradient(160deg,var(--ember) 0%,var(--ember) 48%,var(--teal) 52%,var(--teal) 100%);
+    clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.10;transform:rotate(8deg)}
+  .hero h1{max-width:14ch;position:relative}
+  .hero .lead{max-width:46ch;margin-top:24px}
+  .cta-row{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;align-items:center}
+  .cta-note{font-size:13.5px;color:var(--ink-3);margin-top:16px}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .pillar{padding:38px 34px 32px}
+  .pillar .top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .pillar .promise{font-size:15px;color:var(--ink-3);margin:10px 0 24px;min-height:44px}
+  .svc{display:flex;gap:13px;padding:15px 0;border-top:1px solid var(--paper-edge)}
+  .svc:first-of-type{border-top:1px solid var(--paper-edge)}
+  .svc .name{font-weight:700;font-size:16.5px}
+  .svc .desc{font-size:14.5px;color:var(--ink-3);line-height:1.45;margin-top:2px}
+  .svc .tag{font-size:12px;font-weight:700;color:var(--teal);white-space:nowrap}
+  .svc .tag.e{color:var(--ember)}
+
+  /* how it works */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:18px}
+  .step .n{font-family:var(--display);font-weight:700;font-size:40px;color:var(--ember);line-height:1}
+  .step:nth-child(3) .n,.step:nth-child(4) .n{color:var(--teal)}
+  .step h3{font-size:18px;margin:12px 0 7px;font-weight:700}
+  .step p{font-size:14.5px;color:var(--ink-3);line-height:1.5}
+
+  /* proof */
+  .proof-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:16px}
+  .work-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .dk{aspect-ratio:4/5;border-radius:var(--r-md);overflow:hidden;position:relative;display:flex;flex-direction:column;
+    padding:20px 17px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+  .dk:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+  .dk .tb{position:absolute;top:0;left:0;right:0;height:5px;display:flex}.dk .tb i{flex:1}
+  .dk .cat{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+  .dk .ttl{font-family:var(--display);font-weight:700;font-size:16.5px;line-height:1.13;letter-spacing:-.01em;margin-top:9px}
+  .dk .sp{flex:1}
+  .dk .foot2{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:.03em;opacity:.72}
+  .dk .dot{width:7px;height:7px;flex-shrink:0;clip-path:polygon(50% 0,100% 100%,0 100%)}
+  .dk.dark{background:var(--ink);color:var(--paper)}.dk.dark .cat{color:var(--teal)}
+  .bars{display:flex;align-items:flex-end;gap:5px;height:50px;margin-bottom:16px}
+  .bars b{flex:1;border-radius:3px 3px 0 0;background:rgba(245,242,234,.16)}.bars b.hot{background:var(--teal)}
+  .bigstat{font-family:var(--display);font-weight:700;font-size:40px;line-height:1;letter-spacing:-.03em;color:var(--ember);margin-bottom:14px}
+  .bigstat small{display:block;font-family:var(--body);font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--paper);opacity:.66;margin-top:7px;text-transform:uppercase}
+  .dk.light{background:var(--white);color:var(--ink);border:1px solid var(--paper-edge)}.dk.light .cat{color:var(--ember)}
+  .dk .qmark{font-family:var(--display);font-weight:700;font-size:50px;line-height:.5;color:var(--ember);height:24px}
+  .dk .quote{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.16;letter-spacing:-.01em;margin-top:12px}
+  .proof-side{padding:30px 28px}
+  .proof-side .stat{font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:-.02em}
+  .proof-side .lab{font-size:14px;color:var(--ink-3);margin-top:4px}
+  .proof-side hr{margin:22px 0;border:0;height:1px;background:var(--paper-edge)}
+
+  /* CTA band */
+  .band{background:var(--ink);color:var(--paper);border-radius:var(--r-lg);padding:60px 56px;
+    display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .band h2{color:var(--paper);max-width:18ch}
+  .band p{color:#B8B4A8;margin-top:14px;max-width:42ch;font-size:16px}
+
+  /* footer */
+  footer{padding:46px 0 60px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot .wordmark{color:var(--ink)}
+  .foot .meta{font-size:14px;color:var(--ink-3)}
+  .foot .meta b{color:var(--ink-2);font-weight:700}
+</style>
+</head>
+<body>
+<div class="topbar"><i class="e"></i><i class="t"></i></div>
+
+<div class="wrap">
+  <nav>
+    <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+    </div>
+    <a class="btn btn-ink" href="#start">Start a project <span class="arr">→</span></a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="big-wedge"></div>
+    <div class="eyebrow rise d1">Design + AI systems studio · Philadelphia</div>
+    <h1 class="display rise d2">Punch above<br>your size<span class="wedge" style="width:.5em;height:.5em;margin-left:6px"></span></h1>
+    <p class="lead rise d3">Upwield makes small organizations <em class="ember">look sharp</em> and <em class="teal">run lean</em> — design and AI systems under one roof, so a three-person shop shows up like a thirty-person one.</p>
+    <div class="cta-row rise d4">
+      <a class="btn btn-teal" href="intake.html?need=lean">Start with an audit <span class="arr">→</span></a>
+      <a class="btn btn-ember" href="#work">See the work <span class="arr">→</span></a>
+    </div>
+    <p class="cta-note rise d5">A one-person studio — you work with the maker, not an account manager.</p>
+  </div>
+</header>
+
+<!-- PILLARS / SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow">Two halves of one studio</div>
+    <h2 class="display" style="margin-top:8px;max-width:18ch">Everything here makes you bigger than you are — on the surface, or under the hood.</h2>
+    <div class="pillars" style="margin-top:40px">
+
+      <div class="pillar card">
+        <div class="top"><span class="chip chip-ember">Look sharp</span></div>
+        <p class="promise">Show up like a bigger, more credible organization.</p>
+        <div class="svc"><div><div class="name">Deck Production</div><div class="desc">Investor, board, and advocacy decks that look like a design studio made them. Priced per slide.</div></div></div>
+        <div class="svc"><div><div class="name">Per-Event Media</div><div class="desc">A next-day highlight video and a staff/performer notes PDF — every show, on a template.</div></div></div>
+        <div class="svc"><div><div class="name">Brand Kits <span class="tag e">soon</span></div><div class="desc">Logo, identity, and reusable templates so everything you send looks like one company.</div></div></div>
+      </div>
+
+      <div class="pillar card">
+        <div class="top"><span class="chip chip-teal">Run lean</span></div>
+        <p class="promise">Operate like a bigger, more efficient organization.</p>
+        <div class="svc"><div><div class="name">Automation Audit</div><div class="desc">A one-week diagnostic that finds the manual busywork and hands you a ranked plan to kill it.</div></div><div class="tag">$499</div></div>
+        <div class="svc"><div><div class="name">Workflow Bots</div><div class="desc">Slack and Discord bots that handle the repetitive work — FAQ, onboarding, notifications, ops.</div></div></div>
+        <div class="svc"><div><div class="name">Self-Host Migration</div><div class="desc">Move off stacked monthly subscriptions onto tools you own. Your savings pay for the switch.</div></div></div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a class="btn btn-ghost" href="services.html">See all services <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2 class="display" style="margin-top:8px;max-width:20ch">Start small. We earn the next thing.</h2>
+    <p class="lead muted" style="margin-top:14px;max-width:54ch">No long contract to begin. One cheap, concrete project — then the work tells us what's worth building next.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Start with a wedge</h3><p>A $499 audit, or a single deck. Low risk, fast turnaround, nothing to commit to.</p></div>
+      <div class="step"><div class="n">2</div><h3>Get something concrete</h3><p>A ranked plan with hours and dollars saved — or a deck you can present Monday.</p></div>
+      <div class="step"><div class="n">3</div><h3>We build what it surfaces</h3><p>The bot, the migration, the next deck. You only fund what the first project proved was worth it.</p></div>
+      <div class="step"><div class="n">4</div><h3>Stay lean</h3><p>An optional monthly retainer keeps the systems running and the work looking sharp.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF / WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow">Selected work</div>
+    <h2 class="display" style="margin-top:8px;max-width:16ch">Already shipping, already paid for.</h2>
+    <div class="proof-grid">
+      <div>
+        <div class="work-tiles">
+          <div class="dk dark">
+            <div class="tb"><i style="background:var(--teal)"></i><i style="background:var(--teal-deep)"></i></div>
+            <div class="cat">Strategy</div>
+            <div class="ttl">Keeping public dollars in the local economy</div>
+            <div class="sp"></div>
+            <div class="bars"><b style="height:38%"></b><b style="height:60%"></b><b class="hot" style="height:100%"></b><b style="height:52%"></b><b style="height:78%"></b></div>
+            <div class="foot2"><span class="dot" style="background:var(--teal)"></span> Procurement strategy</div>
+          </div>
+          <div class="dk dark">
+            <div class="tb"><i style="background:var(--ember)"></i><i style="background:var(--ember-deep)"></i></div>
+            <div class="cat" style="color:var(--ember)">Briefing</div>
+            <div class="ttl">The local case for food security</div>
+            <div class="sp"></div>
+            <div class="bigstat" style="font-size:34px">1 in 6<small>face food insecurity</small></div>
+            <div class="foot2"><span class="dot" style="background:var(--ember)"></span> Food-policy briefing</div>
+          </div>
+          <div class="dk light">
+            <div class="tb"><i style="background:var(--ink)"></i><i style="background:var(--ember)"></i></div>
+            <div class="cat">Advocacy</div>
+            <span class="qmark">&ldquo;</span>
+            <div class="quote">Make the case the room can&rsquo;t ignore.</div>
+            <div class="sp"></div>
+            <div class="foot2"><span class="dot" style="background:var(--ember)"></span> Advocacy campaign</div>
+          </div>
+        </div>
+        <p class="muted" style="font-size:14px;margin-top:14px">Representative of recent decks — full, name-stripped samples on request.</p>
+      </div>
+      <div class="proof-side card">
+        <div class="stat">Weekly</div>
+        <div class="lab">Per-event media running every week at a Philadelphia jazz club.</div>
+        <hr>
+        <div class="stat">~2 hrs</div>
+        <div class="lab">Marginal time per audit — half the deliverable runs on our own tooling, so it's fast and cheap.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="start" style="padding-top:20px">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <h2 class="display">Where are you losing time — or looking smaller than you are?</h2>
+        <p>Tell us in five questions. We'll point to the fastest fix, whether that's a deck this week or an automation that saves you ten hours a month.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a class="btn btn-teal" href="intake.html?need=lean">Start with an audit <span class="arr">→</span></a>
+        <a class="btn btn-ghost" style="border-color:var(--paper);color:var(--paper)" href="intake.html?need=sharp">Start a deck <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <hr class="rule" style="margin-bottom:40px">
+    <div class="foot">
+      <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
+      <div class="meta"><b>Philadelphia</b> · hello@upwield.com · A one-person studio — you work with the maker.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

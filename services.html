@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — Upwield</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="upwield.css">
+<style>
+  .topbar{display:flex;height:5px}.topbar i{flex:1}.topbar .e{background:var(--ember)}.topbar .t{background:var(--teal)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  nav .links{display:flex;gap:30px;font-weight:600;font-size:15px}
+  nav .links a{color:var(--ink-2);text-decoration:none}nav .links a:hover{color:var(--ink)}
+  .head{padding:54px 0 8px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;align-items:start}
+  .col{padding:32px 30px 24px}
+  .col .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .col .promise{font-size:14.5px;color:var(--ink-3);margin:8px 0 18px}
+  .row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--paper-edge)}
+  .row .name{font-weight:700;font-size:16px}
+  .row .name .star{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+  .row .name .star.e{color:var(--ember)}.row .name .star.t{color:var(--teal)}
+  .row .desc{font-size:14px;color:var(--ink-3);line-height:1.42;margin-top:2px}
+  .row .price{font-weight:800;font-size:13px;color:var(--teal);white-space:nowrap;margin-left:auto}
+  .labs{margin-top:24px;background:var(--ink);color:var(--paper);border-radius:var(--r-lg);padding:36px 34px}
+  .labs h3{color:var(--paper);font-size:22px}
+  .labs .tag{display:inline-block;background:rgba(245,242,234,.12);color:var(--paper);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill);margin-bottom:14px}
+  .labs .items{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin-top:18px}
+  .labs .it{padding:10px 0;border-top:1px solid rgba(245,242,234,.14)}
+  .labs .it b{font-weight:700}.labs .it span{display:block;color:#B8B4A8;font-size:13.5px;margin-top:2px}
+  footer{padding:54px 0 60px}.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot .meta{font-size:14px;color:var(--ink-3)}.foot .meta b{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="topbar"><i class="e"></i><i class="t"></i></div>
+<div class="wrap">
+  <nav>
+    <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
+    <div class="links"><a href="index.html#work">Work</a><a href="services.html">Services</a><a href="index.html#how">How it works</a></div>
+    <a class="btn btn-ink" href="index.html#start">Start a project <span class="arr">→</span></a>
+  </nav>
+</div>
+
+<header class="wrap head">
+  <div class="eyebrow rise d1">Services</div>
+  <h1 class="display rise d2" style="max-width:15ch;margin-top:8px">The whole menu — you only ever start with one thing.</h1>
+  <p class="lead rise d3" style="max-width:50ch;margin-top:18px">Two halves of one studio. Pick a front door (★) — a deck or a $499 audit — and the rest follows once we've delivered something concrete.</p>
+</header>
+
+<section class="wrap" style="padding-top:0">
+  <div class="cols">
+
+    <!-- LOOK SHARP -->
+    <div class="col card">
+      <div class="top"><span class="chip chip-ember">Look sharp</span></div>
+      <p class="promise">Show up like a bigger, more credible organization.</p>
+      <div class="row"><div><div class="name">Deck Production <span class="star e">★ start here</span></div><div class="desc">Investor, board, advocacy decks — one focal point per slide, no template look.</div></div></div>
+      <div class="row"><div><div class="name">Per-Event Media</div><div class="desc">Next-day highlight video + a staff/performer notes PDF, every show.</div></div></div>
+      <div class="row"><div><div class="name">One-Page Sites &amp; Refresh</div><div class="desc">A sharp one-page site, or new life for a dated one. Fast, high-design.</div></div></div>
+      <div class="row"><div><div class="name">Brand Kits</div><div class="desc">Logo, identity, reusable templates — so everything you send looks like one company.</div></div></div>
+      <div class="row"><div><div class="name">Local Presence Kit</div><div class="desc">Google Business, a reviews funnel, and the schema that makes you findable.</div></div></div>
+    </div>
+
+    <!-- RUN LEAN -->
+    <div class="col card">
+      <div class="top"><span class="chip chip-teal">Run lean</span></div>
+      <p class="promise">Operate like a bigger, more efficient organization.</p>
+      <div class="row"><div><div class="name">Automation Audit <span class="star t">★ start here</span></div><div class="desc">One-week diagnostic → a ranked plan to kill the manual busywork.</div></div><div class="price">$499</div></div>
+      <div class="row"><div><div class="name">Workflow Bots</div><div class="desc">Slack/Discord bots for FAQ, onboarding, notifications, ops.</div></div></div>
+      <div class="row"><div><div class="name">Self-Host Migration</div><div class="desc">Off stacked subscriptions onto tools you own — savings pay for it.</div></div></div>
+      <div class="row"><div><div class="name">Inbox &amp; Comms Triage</div><div class="desc">Tame a flooded inbox — sorted, prioritized, auto-handled where it can be.</div></div></div>
+      <div class="row"><div><div class="name">Proposal &amp; Doc Automation</div><div class="desc">Proposals, contracts, invoices generated from templates in minutes.</div></div></div>
+      <div class="row"><div><div class="name">Live Dashboards</div><div class="desc">Your messy spreadsheets, turned into one dashboard you actually read.</div></div></div>
+      <div class="row"><div><div class="name">"AI for Your Team" Workshop</div><div class="desc">A productized half-day that leaves your people faster than they were.</div></div></div>
+    </div>
+
+  </div>
+
+  <!-- LABS -->
+  <div class="labs">
+    <span class="tag">Upwield Labs · bigger builds</span>
+    <h3 class="display">When a project outgrows a service.</h3>
+    <div class="items">
+      <div class="it"><b>RAG / Knowledge-Base Builds</b><span>An assistant that actually knows your documents.</span></div>
+      <div class="it"><b>Local-AI Deployment</b><span>Private AI on your own hardware — no per-token bills.</span></div>
+      <div class="it"><b>Vertical Micro-SaaS</b><span>A small, focused tool for the niche you work in.</span></div>
+      <div class="it"><b>Tools, Skills &amp; Experiments</b><span>The R&amp;D bench that keeps the rest sharp.</span></div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:42px">
+    <a class="btn btn-teal" href="intake.html?need=lean">Start with an audit <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><hr class="rule" style="margin-bottom:40px">
+    <div class="foot">
+      <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
+      <div class="meta"><b>Philadelphia</b> · hello@upwield.com · A one-person studio — you work with the maker.</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
