@@ -56,8 +56,22 @@
   .step h3{font-size:18px;margin:12px 0 7px;font-weight:700}
   .step p{font-size:14.5px;color:var(--ink-3);line-height:1.5}
 
-  /* proof */
-  .proof-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:16px}
+  /* proof — case studies */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+  .case{padding:26px 24px 24px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .case .edge{position:absolute;top:0;left:0;right:0;height:4px}
+  .case .tag{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+  .case .tag.e{color:var(--ember)}
+  .case .ttl{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.12;letter-spacing:-.01em;margin:11px 0 13px}
+  .case .pa{font-size:14px;color:var(--ink-3);line-height:1.5}
+  .case .pa b{color:var(--ink-2);font-weight:700}
+  .case .res{margin-top:auto;padding-top:18px}
+  .case .num{font-family:var(--display);font-weight:700;font-size:32px;line-height:1;letter-spacing:-.02em;color:var(--ember)}
+  .case.lean .num{color:var(--teal)}
+  .case .num small{display:block;font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.01em;color:var(--ink-3);margin-top:8px;text-transform:none}
+
+  /* design range tiles */
+  .range-label{font-size:12.5px;margin:36px 0 14px;letter-spacing:.14em;font-weight:800;text-transform:uppercase;color:var(--ink-3)}
   .work-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .dk{aspect-ratio:4/5;border-radius:var(--r-md);overflow:hidden;position:relative;display:flex;flex-direction:column;
     padding:20px 17px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
@@ -76,10 +90,36 @@
   .dk.light{background:var(--white);color:var(--ink);border:1px solid var(--paper-edge)}.dk.light .cat{color:var(--ember)}
   .dk .qmark{font-family:var(--display);font-weight:700;font-size:50px;line-height:.5;color:var(--ember);height:24px}
   .dk .quote{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.16;letter-spacing:-.01em;margin-top:12px}
-  .proof-side{padding:30px 28px}
-  .proof-side .stat{font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:-.02em}
-  .proof-side .lab{font-size:14px;color:var(--ink-3);margin-top:4px}
-  .proof-side hr{margin:22px 0;border:0;height:1px;background:var(--paper-edge)}
+
+  /* receipts — shipped software */
+  .ships{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .ship{display:block;padding:24px 22px;text-decoration:none;color:var(--ink);position:relative;overflow:hidden;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+  .ship:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+  .ship .bar{position:absolute;top:0;left:0;right:0;height:4px}
+  .ship .k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .ship .nm{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.01em;margin:9px 0 7px;display:flex;align-items:center;gap:8px}
+  .ship .nm .arr{color:var(--ember);transition:transform .2s var(--ease)}
+  .ship:hover .nm .arr{transform:translate(3px,-3px)}
+  .ship .ds{font-size:14px;color:var(--ink-3);line-height:1.46}
+  .ship .live{display:inline-flex;align-items:center;gap:7px;margin-top:15px;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+  .ship .live i{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(17,153,138,.45)}70%{box-shadow:0 0 0 7px rgba(17,153,138,0)}100%{box-shadow:0 0 0 0 rgba(17,153,138,0)}}
+  .ships-foot{margin-top:18px;font-size:15px;color:var(--ink-3);max-width:62ch}
+  .ships-foot a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:2px solid var(--ember)}
+  .ships-foot a:hover{border-bottom-color:var(--teal)}
+
+  /* founder */
+  .maker{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;margin-top:26px}
+  .maker .ava{width:150px;height:150px;border-radius:var(--r-lg);background:var(--ink);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+  .maker .ava .mono{font-family:var(--display);font-weight:700;font-size:54px;letter-spacing:-.03em;position:relative;z-index:1}
+  .maker .ava .w{position:absolute;bottom:-24px;right:-24px;width:96px;height:96px;background:var(--ember);
+    clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.92;transform:rotate(12deg)}
+  .maker .bio .lead2{font-size:clamp(17px,1.9vw,20px);color:var(--ink-2);line-height:1.56;max-width:56ch}
+  .maker .bio .lead2 b{color:var(--ink);font-weight:700}
+  .maker .sign{margin-top:16px;font-size:14.5px;color:var(--ink-3)}
+  .maker .sign b{color:var(--teal);font-weight:700}
 
   /* CTA band */
   .band{background:var(--ink);color:var(--paper);border-radius:var(--r-lg);padding:60px 56px;
@@ -87,13 +127,45 @@
   .band h2{color:var(--paper);max-width:18ch}
   .band p{color:#B8B4A8;margin-top:14px;max-width:42ch;font-size:16px}
 
+  /* what happens next */
+  .next{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .nx{padding:22px 22px 20px;border-top:3px solid var(--paper-edge)}
+  .nx:nth-child(1){border-top-color:var(--ember)}
+  .nx:nth-child(2){border-top-color:var(--teal)}
+  .nx:nth-child(3){border-top-color:var(--ink)}
+  .nx .s{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+  .nx h4{font-size:17px;font-weight:700;margin:9px 0 6px}
+  .nx p{font-size:14.5px;color:var(--ink-3);line-height:1.5}
+
   /* footer */
   footer{padding:46px 0 60px}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
   .foot .wordmark{color:var(--ink)}
   .foot .meta{font-size:14px;color:var(--ink-3)}
   .foot .meta b{color:var(--ink-2);font-weight:700}
+
+  @media(max-width:680px){
+    .cases,.ships,.next{grid-template-columns:1fr!important}
+    .maker{grid-template-columns:1fr!important;text-align:center}
+    .maker .ava{margin:0 auto}
+    .maker .bio .lead2{max-width:none}
+  }
 </style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Upwield",
+  "description":"A one-person design and AI systems studio in Philadelphia — making small organizations look sharp and run lean.",
+  "url":"https://upwield.com/",
+  "email":"hello@upwield.com",
+  "founder":{"@type":"Person","name":"Ian Swain"},
+  "areaServed":{"@type":"City","name":"Philadelphia"},
+  "address":{"@type":"PostalAddress","addressLocality":"Philadelphia","addressRegion":"PA","addressCountry":"US"},
+  "knowsAbout":["Presentation design","Workflow automation","AI systems","Brand identity","Self-hosting"],
+  "sameAs":["https://iswain.dev","https://github.com/IASC-00"]
+}
+</script>
 </head>
 <body>
 <div class="topbar"><i class="e"></i><i class="t"></i></div>
@@ -102,9 +174,9 @@
   <nav>
     <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
     <div class="links">
-      <a href="#work">Work</a>
+      <a href="#work">Proof</a>
       <a href="#services">Services</a>
-      <a href="#how">How it works</a>
+      <a href="#maker">The maker</a>
     </div>
     <a class="btn btn-ink" href="#start">Start a project <span class="arr">→</span></a>
   </nav>
@@ -173,44 +245,116 @@
 <!-- PROOF / WORK -->
 <section id="work">
   <div class="wrap">
-    <div class="eyebrow">Selected work</div>
+    <div class="eyebrow">Proof</div>
     <h2 class="display" style="margin-top:8px;max-width:16ch">Already shipping, already paid for.</h2>
-    <div class="proof-grid">
-      <div>
-        <div class="work-tiles">
-          <div class="dk dark">
-            <div class="tb"><i style="background:var(--teal)"></i><i style="background:var(--teal-deep)"></i></div>
-            <div class="cat">Strategy</div>
-            <div class="ttl">Keeping public dollars in the local economy</div>
-            <div class="sp"></div>
-            <div class="bars"><b style="height:38%"></b><b style="height:60%"></b><b class="hot" style="height:100%"></b><b style="height:52%"></b><b style="height:78%"></b></div>
-            <div class="foot2"><span class="dot" style="background:var(--teal)"></span> Procurement strategy</div>
-          </div>
-          <div class="dk dark">
-            <div class="tb"><i style="background:var(--ember)"></i><i style="background:var(--ember-deep)"></i></div>
-            <div class="cat" style="color:var(--ember)">Briefing</div>
-            <div class="ttl">The local case for food security</div>
-            <div class="sp"></div>
-            <div class="bigstat" style="font-size:34px">1 in 6<small>face food insecurity</small></div>
-            <div class="foot2"><span class="dot" style="background:var(--ember)"></span> Food-policy briefing</div>
-          </div>
-          <div class="dk light">
-            <div class="tb"><i style="background:var(--ink)"></i><i style="background:var(--ember)"></i></div>
-            <div class="cat">Advocacy</div>
-            <span class="qmark">&ldquo;</span>
-            <div class="quote">Make the case the room can&rsquo;t ignore.</div>
-            <div class="sp"></div>
-            <div class="foot2"><span class="dot" style="background:var(--ember)"></span> Advocacy campaign</div>
-          </div>
-        </div>
-        <p class="muted" style="font-size:14px;margin-top:14px">Representative of recent decks — full, name-stripped samples on request.</p>
+    <p class="lead muted" style="margin-top:14px;max-width:54ch">Real work for paying clients — anonymized, because what's built in the room stays in the room. Three recent ones:</p>
+
+    <div class="cases">
+      <div class="case card">
+        <div class="edge" style="background:var(--ember)"></div>
+        <div class="tag e">Look sharp · Decks</div>
+        <div class="ttl">Briefing decks that hold a room of aides</div>
+        <div class="pa"><b>Problem:</b> small teams walking into big rooms with slides that shrink them. <b>Built:</b> a reusable deck system — one focal point per slide, sourced figures, zero template look — re-skinned per audience.</div>
+        <div class="res"><div class="num">Dozens<small>investor, board, civic &amp; advocacy decks shipped</small></div></div>
       </div>
-      <div class="proof-side card">
-        <div class="stat">Weekly</div>
-        <div class="lab">Per-event media running every week at a Philadelphia jazz club.</div>
-        <hr>
-        <div class="stat">~2 hrs</div>
-        <div class="lab">Marginal time per audit — half the deliverable runs on our own tooling, so it's fast and cheap.</div>
+
+      <div class="case card lean">
+        <div class="edge" style="background:var(--teal)"></div>
+        <div class="tag">Run lean · Automation</div>
+        <div class="ttl">A 300,000-message inbox, made findable</div>
+        <div class="pa"><b>Problem:</b> a mailbox so deep nothing could be found. <b>Built:</b> a sorting and auto-filing system that cleared the backlog and keeps it clean — contracted, delivered, invoiced.</div>
+        <div class="res"><div class="num">300k<small>messages organized for a paying client</small></div></div>
+      </div>
+
+      <div class="case card">
+        <div class="edge" style="background:var(--ember)"></div>
+        <div class="tag e">Look sharp · Per-event media</div>
+        <div class="ttl">Next-day recap media — every single show</div>
+        <div class="pa"><b>Problem:</b> a Philadelphia music venue that needed sharp recaps with no media team. <b>Built:</b> a templated pipeline — highlight video plus a staff/performer notes PDF, same brand every time.</div>
+        <div class="res"><div class="num">~2 hrs<small>marginal time per event — half runs on Upwield's own tooling</small></div></div>
+      </div>
+    </div>
+
+    <div class="range-label">A few recent decks</div>
+    <div class="work-tiles">
+      <div class="dk dark">
+        <div class="tb"><i style="background:var(--teal)"></i><i style="background:var(--teal-deep)"></i></div>
+        <div class="cat">Strategy</div>
+        <div class="ttl">Keeping public dollars in the local economy</div>
+        <div class="sp"></div>
+        <div class="bars"><b style="height:38%"></b><b style="height:60%"></b><b class="hot" style="height:100%"></b><b style="height:52%"></b><b style="height:78%"></b></div>
+        <div class="foot2"><span class="dot" style="background:var(--teal)"></span> Procurement strategy</div>
+      </div>
+      <div class="dk dark">
+        <div class="tb"><i style="background:var(--ember)"></i><i style="background:var(--ember-deep)"></i></div>
+        <div class="cat" style="color:var(--ember)">Briefing</div>
+        <div class="ttl">The local case for food security</div>
+        <div class="sp"></div>
+        <div class="bigstat" style="font-size:34px">1 in 6<small>face food insecurity</small></div>
+        <div class="foot2"><span class="dot" style="background:var(--ember)"></span> Food-policy briefing</div>
+      </div>
+      <div class="dk light">
+        <div class="tb"><i style="background:var(--ink)"></i><i style="background:var(--ember)"></i></div>
+        <div class="cat">Advocacy</div>
+        <span class="qmark">&ldquo;</span>
+        <div class="quote">Make the case the room can&rsquo;t ignore.</div>
+        <div class="sp"></div>
+        <div class="foot2"><span class="dot" style="background:var(--ember)"></span> Advocacy campaign</div>
+      </div>
+    </div>
+    <p class="muted" style="font-size:14px;margin-top:14px">Full, name-stripped samples on request.</p>
+
+    <!-- TESTIMONIAL — un-comment and drop in ONE cleared, real client quote to activate. Do not fabricate.
+    <div class="tmoni" style="margin-top:24px;padding:34px 36px;background:var(--ink);color:var(--paper);border-radius:var(--r-lg)">
+      <div class="q" style="font-family:var(--display);font-weight:700;font-size:25px;line-height:1.25;max-width:30ch">&ldquo;[One or two sentences, in the client's words, on the outcome.]&rdquo;</div>
+      <div class="by" style="margin-top:18px;font-size:14px;color:#B8B4A8;font-weight:600">— <b style="color:var(--paper)">[Name or role]</b>, [Organization]</div>
+    </div>
+    -->
+  </div>
+</section>
+
+<!-- RECEIPTS / SHIPPED SOFTWARE -->
+<section id="built" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="eyebrow">Built &amp; shipped</div>
+    <h2 class="display" style="margin-top:8px;max-width:19ch">Most studios show mockups. This runs in production — click any of it.</h2>
+    <p class="lead muted" style="margin-top:14px;max-width:56ch">Design is half the studio. The other half is software that actually ships. A sample you can open right now:</p>
+    <div class="ships">
+      <a class="ship card" href="https://appforge-demo.onrender.com" target="_blank" rel="noopener">
+        <div class="bar" style="background:var(--teal)"></div>
+        <div class="k">AI tool</div>
+        <div class="nm">AppForge <span class="arr">↗</span></div>
+        <div class="ds">Describe an app in plain English; AI generates a working web app you can use on the spot.</div>
+        <span class="live"><i></i> Live demo</span>
+      </a>
+      <a class="ship card" href="https://decipher-vue.vercel.app" target="_blank" rel="noopener">
+        <div class="bar" style="background:var(--ember)"></div>
+        <div class="k">Vue · puzzle</div>
+        <div class="nm">Decipher <span class="arr">↗</span></div>
+        <div class="ds">A daily word-deduction game, designed and built front-to-back in Vue.</div>
+        <span class="live"><i></i> Play it</span>
+      </a>
+      <a class="ship card" href="https://cosmic-rift-loea.vercel.app" target="_blank" rel="noopener">
+        <div class="bar" style="background:var(--ink)"></div>
+        <div class="k">Roguelike</div>
+        <div class="nm">Cosmic Rift <span class="arr">↗</span></div>
+        <div class="ds">A browser deckbuilding roguelike — original art, mechanics, and balance, in production.</div>
+        <span class="live"><i></i> Play it</span>
+      </a>
+    </div>
+    <p class="ships-foot">Plus 90+ Claude Code skills, a private local-AI suite, and a stack more live builds — <a href="https://iswain.dev" target="_blank" rel="noopener">see the full portfolio</a> or <a href="https://github.com/IASC-00" target="_blank" rel="noopener">browse the code</a>.</p>
+  </div>
+</section>
+
+<!-- THE MAKER -->
+<section id="maker">
+  <div class="wrap">
+    <div class="eyebrow">Who you're working with</div>
+    <div class="maker">
+      <div class="ava"><span class="mono">IS</span><span class="w"></span></div>
+      <div class="bio">
+        <p class="lead2">Upwield is <b>Ian Swain</b> — a Philadelphia operator who spent 14 years running operations before going all-in on building studios. The combination is the whole point: most shops hand you a designer <b>or</b> an automation person. Ian is both — which is how a three-person organization ends up looking and running like a thirty-person one. You work with the maker from first email to final file. No account managers, no handoffs, no markup on someone else's work.</p>
+        <p class="sign"><b>Ian reads every intake personally</b> — and replies within one business day.</p>
       </div>
     </div>
   </div>
@@ -228,6 +372,11 @@
         <a class="btn btn-teal" href="intake.html?need=lean">Start with an audit <span class="arr">→</span></a>
         <a class="btn btn-ghost" style="border-color:var(--paper);color:var(--paper)" href="intake.html?need=sharp">Start a deck <span class="arr">→</span></a>
       </div>
+    </div>
+    <div class="next">
+      <div class="nx"><div class="s">Step 1</div><h4>Ian reads it — himself</h4><p>Every intake goes straight to the maker. You hear back within one business day, not a queue.</p></div>
+      <div class="nx"><div class="s">Step 2</div><h4>You get a straight answer</h4><p>The fastest fix for what you sent — a deck this week, or the one automation worth building first.</p></div>
+      <div class="nx"><div class="s">Step 3</div><h4>Start small</h4><p>One concrete project, low risk. No retainer and no long contract to begin. The work earns the next thing.</p></div>
     </div>
   </div>
 </section>
