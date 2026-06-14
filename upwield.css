@@ -100,6 +100,14 @@ section{padding:92px 0}
 .d1{animation-delay:.06s}.d2{animation-delay:.14s}.d3{animation-delay:.22s}
 .d4{animation-delay:.30s}.d5{animation-delay:.38s}.d6{animation-delay:.46s}
 
+/* ---------- mobile ---------- */
+@media(max-width:680px){
+  nav .links{display:none!important}
+  .pillars,.proof-grid,.steps,.cols,.labs .items{grid-template-columns:1fr!important}
+  section{padding:60px 0}
+  .band{padding:40px 30px}
+}
+
 /* ---------- one-pager sheet + print/PDF ---------- */
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .sheet{width:8.5in;min-height:11in;margin:30px auto;background:var(--paper);
