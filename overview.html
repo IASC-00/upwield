@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Overview — Upwield</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="upwield.css">
+<style>
+  body{background:#e7e7ea}
+  .topbar{display:flex;height:7px}.topbar i{flex:1}.topbar .e{background:var(--ember)}.topbar .t{background:var(--teal)}
+  .sheet .head{display:flex;justify-content:space-between;align-items:flex-start;margin-top:8px}
+  .sheet .head .wordmark{font-size:22px}
+  .label{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
+  h1.display{font-size:42px;margin-top:10px;max-width:18ch}
+  h1.display .e{color:var(--ember)}h1.display .t{color:var(--teal)}
+  .sub{font-size:16px;color:var(--ink-2);line-height:1.48;margin-top:10px;max-width:62ch}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px}
+  .col{padding:16px 20px 12px;background:var(--paper-2);border:1px solid var(--paper-edge);border-radius:var(--r-lg)}
+  .col .promise{font-size:13.5px;color:var(--ink-3);margin:10px 0 14px}
+  .row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--paper-edge)}
+  .row .nm{font-weight:700;font-size:14.5px}
+  .row .ds{font-size:12.5px;color:var(--ink-3);line-height:1.35;margin-top:1px}
+  .row .pr{font-weight:800;font-size:12px;color:var(--teal);white-space:nowrap;margin-left:auto}
+  .how{margin-top:18px}
+  .how h3{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:800;margin-bottom:14px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .step .n{font-family:var(--display);font-weight:700;font-size:28px;color:var(--ember);line-height:1}
+  .step:nth-child(3) .n,.step:nth-child(4) .n{color:var(--teal)}
+  .step b{display:block;font-size:14px;margin:7px 0 3px}
+  .step span{font-size:12.5px;color:var(--ink-3);line-height:1.4}
+  .foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--paper-edge)}
+  .foot .cta{font-weight:800;font-size:15px;color:var(--ink)}
+  .foot .meta{font-size:13px;color:var(--ink-3)}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="topbar"><i class="e"></i><i class="t"></i></div>
+  <div class="head">
+    <a class="wordmark">upwield<span class="wedge"></span></a>
+    <span class="label" style="margin-top:2px">Studio Overview</span>
+  </div>
+  <h1 class="display"><span class="e">Look sharp.</span> <span class="t">Run lean.</span></h1>
+  <p class="sub">Upwield is a one-person studio that makes small organizations look like bigger ones — and run like bigger ones. Design and AI systems under one roof, so a three-person shop shows up like a thirty-person one.</p>
+
+  <div class="cols">
+    <div class="col">
+      <span class="chip chip-ember">Look sharp</span>
+      <p class="promise">Show up like a bigger, more credible organization.</p>
+      <div class="row"><div><div class="nm">Deck Production</div><div class="ds">Investor, board &amp; advocacy decks — one focal point per slide, no template look.</div></div></div>
+      <div class="row"><div><div class="nm">Per-Event Media</div><div class="ds">A next-day highlight video + staff/performer notes, every show.</div></div></div>
+      <div class="row"><div><div class="nm">One-Page Sites &amp; Refresh</div><div class="ds">A sharp one-page site, or new life for a dated one.</div></div></div>
+      <div class="row"><div><div class="nm">Brand Kits</div><div class="ds">Logo, identity &amp; templates so everything looks like one company.</div></div></div>
+    </div>
+    <div class="col">
+      <span class="chip chip-teal">Run lean</span>
+      <p class="promise">Operate like a bigger, more efficient organization.</p>
+      <div class="row"><div><div class="nm">Automation Audit</div><div class="ds">A one-week diagnostic → a ranked plan to kill the busywork.</div></div><div class="pr">$499</div></div>
+      <div class="row"><div><div class="nm">Workflow Bots</div><div class="ds">Slack/Discord bots for FAQ, onboarding, notifications, ops.</div></div></div>
+      <div class="row"><div><div class="nm">Self-Host Migration</div><div class="ds">Off stacked subscriptions onto tools you own — savings pay for it.</div></div></div>
+      <div class="row"><div><div class="nm">Live Dashboards</div><div class="ds">Messy spreadsheets turned into one dashboard you actually read.</div></div></div>
+    </div>
+  </div>
+
+  <div class="how">
+    <h3>How it works — start small, earn the next thing</h3>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><b>Start with a wedge</b><span>A $499 audit, or a single deck. Low risk, nothing to commit to.</span></div>
+      <div class="step"><div class="n">2</div><b>Get something concrete</b><span>A ranked plan with hours saved — or a deck you can present Monday.</span></div>
+      <div class="step"><div class="n">3</div><b>We build what it surfaces</b><span>The bot, the migration, the next deck — only what the first project proved.</span></div>
+      <div class="step"><div class="n">4</div><b>Stay lean</b><span>An optional monthly retainer keeps it running and looking sharp.</span></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="cta">Two front doors — a $499 audit, or a deck. Start in five questions.</div>
+    <div class="meta">upwield.com · Philadelphia · hello@upwield.com</div>
+  </div>
+</div>
+</body>
+</html>
