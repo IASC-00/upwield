@@ -297,7 +297,7 @@
      hello@upwield.com, so a real submission is NEVER lost — it
      opens the visitor's email with every answer filled in.
    ============================================================ */
-const ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // SWAP: real Formspree id
+const ENDPOINT = "https://formspree.io/f/mzdaldva"; // Ian's Formspree form → iswaindev@proton.me
 const DEMO = ENDPOINT.includes("YOUR_FORM_ID");
 
 const form   = document.getElementById('intake');
@@ -401,6 +401,7 @@ function showSuccess(mode){
 async function send(){
   const data = new FormData(form);
   data.set('_subject', `New Upwield intake — ${data.get('name')||'someone'} (${PNAME[data.get('need')]||'—'})`);
+  data.set('_replyto', data.get('email')||'');   // reply goes straight to the lead
   if(DEMO){ showSuccess('mailto'); return; }   // no Formspree id yet → prefilled email, nothing lost
   next.disabled = true; next.textContent = 'Sending…';
   try{
