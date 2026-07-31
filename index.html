@@ -113,6 +113,7 @@
   .maker{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;margin-top:26px}
   .maker .ava{width:150px;height:150px;border-radius:var(--r-lg);background:var(--ink);color:var(--paper);
     display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+  .maker .ava img{width:100%;height:100%;object-fit:cover;display:block}
   .maker .ava .mk{width:64px;height:58px;background:var(--ember);clip-path:polygon(50% 0,100% 100%,0 100%)}
   .maker .ava .w{position:absolute;bottom:-24px;right:-24px;width:96px;height:96px;background:var(--ember);
     clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.92;transform:rotate(12deg)}
@@ -345,7 +346,6 @@
   </div>
 </section>
 
-<!-- RECEIPTS / SHIPPED SOFTWARE -->
 <section id="built" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="eyebrow">Built &amp; shipped</div>
@@ -360,7 +360,7 @@
         <span class="live"><i></i> Live demo</span>
       </a>
     </div>
-    <p class="ships-foot">Plus 90+ Claude Code skills, a private local-AI suite, and a stack more live builds — <a href="https://iswain.dev" target="_blank" rel="noopener">see the full portfolio</a> or <a href="https://github.com/IASC-00" target="_blank" rel="noopener">browse the code</a>.</p>
+    <p class="ships-foot">Plus a private local-AI suite and a stack more live builds.</p>
   </div>
 </section>
 
@@ -369,7 +369,12 @@
   <div class="wrap">
     <div class="eyebrow">Who you're working with</div>
     <div class="maker">
-      <div class="ava"><span class="mk"></span></div>
+      <div class="ava">
+        <picture>
+          <source srcset="ian.webp" type="image/webp">
+          <img src="ian.jpg" alt="Ian, who runs Upwield" width="150" height="150" decoding="async">
+        </picture>
+      </div>
       <div class="bio">
         <p class="lead2">Upwield is <b>Ian</b> — a Philadelphia operator who spent 14 years running operations before going all-in on building studios. The combination is the whole point: most shops hand you a designer <b>or</b> an automation person. Ian is both — which is how a three-person organization ends up looking and running like a thirty-person one. You work with the maker from first email to final file. No account managers, no handoffs, no markup on someone else's work.</p>
         <p class="sign"><b>Ian reads every intake personally</b> — and replies within one business day.</p>
