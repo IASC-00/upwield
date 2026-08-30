@@ -4,125 +4,343 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Services — Upwield</title>
+<meta name="description" content="Two halves of one studio: Look Sharp (decks, sites, brand) and Run Lean (automation, bots, dashboards). Start with a $2,500 audit or a single deck.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="upwield.css">
 <style>
-  .topbar{display:flex;height:5px}.topbar i{flex:1}.topbar .e{background:var(--ember)}.topbar .t{background:var(--teal)}
-  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
-  nav .links{display:flex;gap:30px;font-weight:600;font-size:15px}
-  nav .links a{color:var(--ink-2);text-decoration:none}nav .links a:hover{color:var(--ink)}
-  .head{padding:54px 0 8px}
-  .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;align-items:start}
-  .col{padding:32px 30px 24px}
-  .col .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-  .col .promise{font-size:14.5px;color:var(--ink-3);margin:8px 0 18px}
-  .row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--paper-edge)}
-  .row .name{font-weight:700;font-size:16px}
-  .row .name .star{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
-  .row .name .star.e{color:var(--ember)}.row .name .star.t{color:var(--teal)}
-  .row .desc{font-size:14px;color:var(--ink-3);line-height:1.42;margin-top:2px}
-  .row .price{font-weight:800;font-size:13px;color:var(--teal);white-space:nowrap;margin-left:auto}
-  .labs{margin-top:24px;background:var(--ink);color:var(--paper);border-radius:var(--r-lg);padding:36px 34px}
-  .labs h3{color:var(--paper);font-size:22px}
-  .labs .tag{display:inline-block;background:rgba(245,242,234,.12);color:var(--paper);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill);margin-bottom:14px}
-  .labs .items{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin-top:18px}
-  .labs .it{padding:10px 0;border-top:1px solid rgba(245,242,234,.14)}
-  .labs .it b{font-weight:700}.labs .it span{display:block;color:#B8B4A8;font-size:13.5px;margin-top:2px}
-  footer{padding:54px 0 60px}.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-  .foot .meta{font-size:14px;color:var(--ink-3)}.foot .meta b{color:var(--ink-2)}
-  /* engagement ladder */
-  .ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
-  .rung{background:var(--white);border:1px solid var(--paper-edge);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:24px 22px;position:relative;overflow:hidden}
-  .rung::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--ink)}
+  /* ---- hero ---- */
+  .head{padding:76px 0 30px}
+  .head .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end}
+  .head h1{margin-top:20px}
+  .head .side{padding-bottom:10px;border-left:1px solid var(--paper-edge);padding-left:28px}
+  .hint{margin-top:22px;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
+        color:var(--ink-3);display:flex;align-items:center;gap:10px}
+  .hint .g{color:var(--sky)}
+
+  /* ---- split-pane selector (the signature) ---- */
+  .picker{display:grid;grid-template-columns:1fr 1.05fr;gap:34px;align-items:start;margin-top:16px}
+  .rail{display:flex;flex-direction:column}
+  .rail .grouphdr{display:flex;align-items:center;gap:12px;padding:26px 0 12px}
+  .rail .grouphdr:first-child{padding-top:0}
+  .rail .grouphdr .gname{font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+  .rail .grouphdr .gline{flex:1;height:1px;background:var(--paper-edge)}
+  .rail .grouphdr .gp{font-size:12.5px;color:var(--ink-3)}
+
+  .opt{display:flex;gap:16px;align-items:flex-start;width:100%;text-align:left;
+       padding:15px 16px;border:0;border-top:1px solid var(--paper-edge);
+       background:transparent;cursor:pointer;color:inherit;font:inherit;
+       border-radius:12px;transition:background .22s var(--ease)}
+  .opt:hover{background:rgba(255,255,255,.04)}
+  .opt[aria-selected="true"]{background:rgba(255,255,255,.06)}
+  .opt .mk{width:26px;flex:none;padding-top:5px}
+  .opt .mk i{display:block;width:11px;height:11px;
+             clip-path:polygon(50% 0,100% 100%,0 100%);
+             opacity:.34;transition:opacity .22s,transform .22s var(--ease)}
+  .opt[aria-selected="true"] .mk i{opacity:1;transform:scale(1.25)}
+  .opt.e .mk i{background:var(--ember)} .opt.t .mk i{background:var(--teal)}
+  .opt .txt{flex:1;min-width:0}
+  .opt .nm{display:block;font-weight:600;font-size:16.5px;color:var(--ink);
+           letter-spacing:-.01em;font-family:var(--display)}
+  .opt .ds{display:block;font-size:13.5px;color:var(--ink-3);line-height:1.45;margin-top:4px}
+  .opt .tick{margin-left:auto;flex:none;width:26px;height:26px;border-radius:50%;
+             border:1px solid var(--paper-edge);display:grid;place-items:center;
+             color:var(--ink-3);font-size:11px;transition:all .22s var(--ease)}
+  .opt[aria-selected="true"] .tick{border-color:var(--edge-2);color:var(--ink);background:rgba(255,255,255,.06)}
+  .opt .flag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+             margin-left:9px;vertical-align:1px}
+  .opt.e .flag{color:var(--ember)} .opt.t .flag{color:var(--teal)}
+
+  /* detail panel */
+  .panel{position:sticky;top:96px;border-radius:var(--r-xl);padding:38px 36px 30px;
+         background:linear-gradient(168deg,rgba(20,40,78,.72),rgba(8,17,34,.80));
+         border:1px solid var(--paper-edge);box-shadow:var(--shadow-lg);min-height:430px}
+  .panel .ghost{position:absolute;top:26px;right:32px;width:74px;height:74px;
+                clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.11}
+  .panel .ghost.e{background:var(--ember)} .panel .ghost.t{background:var(--teal)}
+  .panel .pmark{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+                border:1px solid var(--paper-edge);background:rgba(255,255,255,.05);margin-bottom:26px}
+  .panel .pmark i{display:block;width:15px;height:15px;clip-path:polygon(50% 0,100% 100%,0 100%)}
+  .panel .pmark i.e{background:var(--ember)} .panel .pmark i.t{background:var(--teal)}
+  .panel .plbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+  .panel .plbl.e{color:var(--ember)} .panel .plbl.t{color:var(--teal)}
+  .panel h2{margin:12px 0 14px;font-size:clamp(27px,3.1vw,37px)}
+  .panel .pd{color:var(--ink-2);font-size:16px;line-height:1.55;max-width:44ch}
+  .panel .caps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+  .panel .cap{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;
+              background:rgba(255,255,255,.045);border:1px solid var(--paper-edge);
+              font-size:13.5px;color:var(--ink-2)}
+  .panel .cap .ck{width:19px;height:19px;flex:none;border-radius:50%;display:grid;place-items:center;
+                  font-size:10px;color:#fff;background:rgba(63,130,255,.85)}
+  .panel .pfoot{display:flex;align-items:center;justify-content:space-between;gap:16px;
+                margin-top:30px;padding-top:18px;border-top:1px solid var(--paper-edge)}
+  .panel .price{font-family:var(--display);font-weight:600;font-size:22px;color:var(--ink);letter-spacing:-.02em}
+  .panel .price small{display:block;font-family:var(--body);font-size:11.5px;font-weight:500;
+                      letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:3px}
+  .panel .ccount{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+
+  /* ---- engagement ladder ---- */
+  .ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+  .rung{padding:26px 24px;position:relative;overflow:hidden}
+  .rung::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--beam)}
   .rung.e::before{background:var(--ember)}.rung.t::before{background:var(--teal)}
-  .rung .rk{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+  .rung .rk{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
   .rung.e .rk{color:var(--ember)}.rung.t .rk{color:var(--teal)}
-  .rung .rt{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em;margin:9px 0 5px}
-  .rung .rp{font-weight:800;font-size:14px;color:var(--ink);margin-bottom:9px}
-  .rung .rd{font-size:14px;color:var(--ink-3);line-height:1.46}
-  .pricing-note{font-size:14px;color:var(--ink-3);margin-top:16px;max-width:62ch}
+  .rung .rt{font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.02em;
+            margin:10px 0 6px;color:var(--ink)}
+  .rung .rp{font-weight:600;font-size:14px;color:var(--ink);margin-bottom:10px}
+  .rung .rd{font-size:14px;color:var(--ink-3);line-height:1.5}
+  .pricing-note{font-size:14.5px;color:var(--ink-3);margin-top:20px;max-width:64ch}
   .pricing-note b{color:var(--ink-2)}
-  @media(max-width:680px){.ladder{grid-template-columns:1fr!important}}
+
+  /* ---- labs ---- */
+  .labs{margin-top:34px;border-radius:var(--r-xl);padding:40px 38px;
+        border:1px solid var(--paper-edge);background:rgba(255,255,255,.03)}
+  .labs h3{margin-top:12px}
+  .labs .items{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 30px;margin-top:24px}
+  .labs .it{padding:15px 0;border-top:1px solid var(--paper-edge)}
+  .labs .it b{font-weight:600;color:var(--ink);font-size:15.5px}
+  .labs .it span{display:block;color:var(--ink-3);font-size:13.5px;margin-top:3px}
+
+  @media(max-width:900px){
+    .head .grid{grid-template-columns:1fr;gap:26px}
+    .head .side{border-left:0;padding-left:0;border-top:1px solid var(--paper-edge);padding-top:22px}
+    .picker{grid-template-columns:1fr;gap:26px}
+    .panel{position:static;min-height:0}
+    .ladder{grid-template-columns:1fr}
+    .labs .items{grid-template-columns:1fr}
+    .panel .caps{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
-<div class="topbar"><i class="e"></i><i class="t"></i></div>
-<div class="wrap">
-  <nav>
+
+<div class="navbar no-print">
+  <div class="inner">
     <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
-    <div class="links"><a href="index.html#work">Work</a><a href="services.html">Services</a><a href="index.html#how">How it works</a></div>
-    <a class="btn btn-ink" href="index.html#start">Start a project <span class="arr">→</span></a>
-  </nav>
+    <div class="links">
+      <a href="index.html#work">Work</a>
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="index.html#how">How it works</a>
+      <a href="audit.html">Audit</a>
+    </div>
+    <a class="btn btn-beam" href="index.html#start">Start a project <span class="arr">→</span></a>
+  </div>
 </div>
 
 <header class="wrap head">
-  <div class="eyebrow rise d1">Services</div>
-  <h1 class="display rise d2" style="max-width:15ch;margin-top:8px">The whole menu — you only ever start with one thing.</h1>
-  <p class="lead rise d3" style="max-width:50ch;margin-top:18px">Two halves of one studio. Pick a front door (★) — a deck or a $499 audit — and the rest follows once we've delivered something concrete.</p>
+  <div class="grid">
+    <div>
+      <div class="eyebrow rise d1">The menu</div>
+      <h1 class="display rise d2" style="max-width:11ch">Two halves. <span class="beam">One studio.</span></h1>
+    </div>
+    <div class="side rise d3">
+      <p class="lead">One studio makes you look sharper and run leaner. You never buy the menu — you pick one front door, we deliver something concrete, and the rest earns its place after that.</p>
+      <div class="hint"><span class="g">↘</span> Pick a service to see what's in it</div>
+    </div>
+  </div>
 </header>
 
-<!-- ENGAGEMENT LADDER + PRICING -->
-<section class="wrap" style="padding-top:0;padding-bottom:0">
+<!-- ============ SPLIT-PANE SELECTOR ============ -->
+<section class="wrap" style="padding-top:44px;padding-bottom:0">
+  <div class="picker">
+
+    <div class="rail" role="listbox" aria-label="Upwield services">
+
+      <div class="grouphdr">
+        <span class="gname" style="color:var(--ember)">Look sharp</span>
+        <span class="gline"></span>
+        <span class="gp">Show up like a bigger organization</span>
+      </div>
+
+      <button class="opt e" role="option" aria-selected="true"
+        data-pillar="e" data-lbl="Look sharp" data-name="Deck Production"
+        data-desc="Investor, board and advocacy decks built one focal point per slide — native editable shapes, never a template with your logo dropped in."
+        data-caps="Narrative + slide architecture|Custom charts and diagrams|Editable .pptx you keep|Speaker notes on request"
+        data-price="Per slide" data-term="Front door">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Deck Production<span class="flag">★ start here</span></span>
+        <span class="ds">Investor, board, advocacy decks — one focal point per slide, no template look.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt e" role="option" aria-selected="false"
+        data-pillar="e" data-lbl="Look sharp" data-name="Per-Event Media"
+        data-desc="A highlight video cut and delivered the next day, plus a notes PDF your staff and performers can actually use — every show, same turnaround."
+        data-caps="Next-day highlight cut|Staff and performer notes PDF|Vertical social versions|Repeatable per-show rate"
+        data-price="Per event" data-term="Recurring">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Per-Event Media</span>
+        <span class="ds">Next-day highlight video + a staff/performer notes PDF, every show.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt e" role="option" aria-selected="false"
+        data-pillar="e" data-lbl="Look sharp" data-name="One-Page Sites &amp; Refresh"
+        data-desc="A sharp one-page site, or new life for a dated one. Hand-built and fast — no page builder, no theme, nothing you have to pay a subscription to keep."
+        data-caps="Hand-built, no page builder|Fast on a phone|Copy written with you|You own the files"
+        data-price="From $5,000" data-term="Fixed scope">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">One-Page Sites &amp; Refresh</span>
+        <span class="ds">A sharp one-page site, or new life for a dated one. Fast, high-design.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt e" role="option" aria-selected="false"
+        data-pillar="e" data-lbl="Look sharp" data-name="Brand Kits"
+        data-desc="Logo, identity and the reusable templates around it — so the deck, the invoice and the site all look like they came from one company."
+        data-caps="Logo and identity system|Colour and type rules|Deck and doc templates|Usage guide"
+        data-price="From $5,000" data-term="Fixed scope">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Brand Kits</span>
+        <span class="ds">Logo, identity, reusable templates — so everything you send looks like one company.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt e" role="option" aria-selected="false"
+        data-pillar="e" data-lbl="Look sharp" data-name="Local Presence Kit"
+        data-desc="The unglamorous set-up that decides whether people nearby find you at all: your Google Business profile, a reviews funnel, and the schema search engines read."
+        data-caps="Google Business profile|Reviews funnel|Local schema markup|Map and directory listings"
+        data-price="From $5,000" data-term="Fixed scope">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Local Presence Kit</span>
+        <span class="ds">Google Business, a reviews funnel, and the schema that makes you findable.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <div class="grouphdr">
+        <span class="gname" style="color:var(--teal)">Run lean</span>
+        <span class="gline"></span>
+        <span class="gp">Operate like a more efficient one</span>
+      </div>
+
+      <button class="opt t" role="option" aria-selected="false"
+        data-pillar="t" data-lbl="Run lean" data-name="Automation Audit"
+        data-desc="A one-week diagnostic that finds the manual work draining your team, then hands you a ranked plan to automate it — with the hours and dollars each fix saves. Remote, from five written answers. No call, no visit."
+        data-caps="Five written questions, no call|Map of your repeat workflows|Ranked plan, hours + dollars saved|Full report, yours to keep"
+        data-price="$2,500" data-term="One week">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Automation Audit<span class="flag">★ start here</span></span>
+        <span class="ds">One-week diagnostic → a ranked plan to kill the manual busywork.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt t" role="option" aria-selected="false"
+        data-pillar="t" data-lbl="Run lean" data-name="Workflow Bots"
+        data-desc="A bot that sits in the tool your team already lives in and handles the question they ask forty times a week — onboarding, FAQ, notifications, routine ops."
+        data-caps="Slack or Discord|FAQ and onboarding flows|Alerts and notifications|Runs on your own keys"
+        data-price="From $5,000" data-term="Fixed scope">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Workflow Bots</span>
+        <span class="ds">Slack/Discord bots for FAQ, onboarding, notifications, ops.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt t" role="option" aria-selected="false"
+        data-pillar="t" data-lbl="Run lean" data-name="Self-Host Migration"
+        data-desc="Move off a stack of monthly subscriptions onto tools you own and run yourself. On most stacks the saved subscriptions pay the project back inside a year."
+        data-caps="Subscription audit first|Migration with your data intact|Runs on hardware you own|Handover docs so it stays yours"
+        data-price="From $5,000" data-term="Fixed scope">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Self-Host Migration</span>
+        <span class="ds">Off stacked subscriptions onto tools you own — savings pay for it.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt t" role="option" aria-selected="false"
+        data-pillar="t" data-lbl="Run lean" data-name="Inbox &amp; Comms Triage"
+        data-desc="A flooded inbox, sorted and prioritized — with the repeat traffic auto-handled so what's left is only what actually needs you."
+        data-caps="Rules and labels that hold|Priority surfacing|Auto-replies for repeat traffic|Weekly digest"
+        data-price="From $5,000" data-term="Fixed scope">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Inbox &amp; Comms Triage</span>
+        <span class="ds">Tame a flooded inbox — sorted, prioritized, auto-handled where it can be.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt t" role="option" aria-selected="false"
+        data-pillar="t" data-lbl="Run lean" data-name="Proposal &amp; Doc Automation"
+        data-desc="Proposals, contracts and invoices generated from your own templates in minutes instead of an afternoon — same numbers, same wording, every time."
+        data-caps="Your templates, your wording|Fill from a form or a sheet|PDF out, ready to send|Numbering that stays consistent"
+        data-price="From $5,000" data-term="Fixed scope">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Proposal &amp; Doc Automation</span>
+        <span class="ds">Proposals, contracts, invoices generated from templates in minutes.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt t" role="option" aria-selected="false"
+        data-pillar="t" data-lbl="Run lean" data-name="Live Dashboards"
+        data-desc="The spreadsheets nobody opens, turned into one dashboard you actually read — pulling from the tools you already use, updating itself."
+        data-caps="Pulls from your existing tools|Updates without you|One screen, not twelve tabs|Built around your questions"
+        data-price="From $5,000" data-term="Fixed scope">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">Live Dashboards</span>
+        <span class="ds">Your messy spreadsheets, turned into one dashboard you actually read.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+      <button class="opt t" role="option" aria-selected="false"
+        data-pillar="t" data-lbl="Run lean" data-name="&quot;AI for Your Team&quot; Workshop"
+        data-desc="A half-day, built around your actual workflows rather than a generic demo — your people leave using the tools on their own work, not watching someone else's."
+        data-caps="Half a day, on your workflows|Hands on keyboards|Prompt and tool cheat sheet|Follow-up questions answered"
+        data-price="Fixed fee" data-term="Half day">
+        <span class="mk"><i></i></span>
+        <span class="txt"><span class="nm">"AI for Your Team" Workshop</span>
+        <span class="ds">A productized half-day that leaves your people faster than they were.</span></span>
+        <span class="tick">✓</span>
+      </button>
+
+    </div>
+
+    <!-- live detail panel -->
+    <aside class="panel blueprint" id="panel" aria-live="polite">
+      <span class="ghost e" id="p-ghost"></span>
+      <div class="pmark"><i class="e" id="p-mark"></i></div>
+      <div class="plbl e" id="p-lbl">Look sharp</div>
+      <h2 class="display" id="p-name">Deck Production</h2>
+      <p class="pd" id="p-desc">Investor, board and advocacy decks built one focal point per slide — native editable shapes, never a template with your logo dropped in.</p>
+      <div class="caps" id="p-caps"></div>
+      <div class="pfoot">
+        <div class="price" id="p-price">Per slide<small id="p-term">Front door</small></div>
+        <div class="ccount" id="p-count">4 capabilities</div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ============ ENGAGEMENT LADDER ============ -->
+<section class="wrap" style="padding-bottom:0">
   <div class="eyebrow">Engagement &amp; pricing</div>
-  <h2 class="display" style="margin-top:8px;max-width:20ch;font-size:clamp(26px,3.2vw,36px)">Small first — then only what earns its place.</h2>
+  <h2 class="display" style="margin-top:12px;max-width:19ch;font-size:clamp(27px,3.4vw,40px)">Small first — then only what earns its place.</h2>
   <div class="ladder">
-    <div class="rung e">
+    <div class="rung card e">
       <div class="rk">Wedge · start here</div>
       <div class="rt">A small, concrete win</div>
-      <div class="rp">$499 audit · or a deck, per slide</div>
+      <div class="rp">$2,500 audit · or a deck, per slide</div>
       <div class="rd">Low risk, fast — the audit lands in a week. Nothing to commit to.</div>
     </div>
-    <div class="rung t">
+    <div class="rung card t">
       <div class="rk">Project</div>
       <div class="rt">Build what it surfaces</div>
-      <div class="rp">From $1,500 · fixed scope</div>
+      <div class="rp">From $5,000 · fixed scope</div>
       <div class="rd">The bot, migration, brand kit, or deck system — quoted to a fixed scope before any work begins.</div>
     </div>
-    <div class="rung">
+    <div class="rung card">
       <div class="rk">Monthly</div>
       <div class="rt">Stay lean, stay sharp</div>
       <div class="rp">Scoped partnership · a few slots</div>
       <div class="rd">Ongoing design + systems on a monthly partnership. Custom-scoped, only a couple at a time.</div>
     </div>
   </div>
-  <p class="pricing-note"><b>Custom per client</b> — you get a fixed scope and price before any work starts, never a surprise invoice. Everything in the menu below slots into one of these three rungs.</p>
-</section>
-
-<section class="wrap" style="padding-top:0">
-  <div class="cols">
-
-    <!-- LOOK SHARP -->
-    <div class="col card">
-      <div class="top"><span class="chip chip-ember">Look sharp</span></div>
-      <p class="promise">Show up like a bigger, more credible organization.</p>
-      <div class="row"><div><div class="name">Deck Production <span class="star e">★ start here</span></div><div class="desc">Investor, board, advocacy decks — one focal point per slide, no template look.</div></div></div>
-      <div class="row"><div><div class="name">Per-Event Media</div><div class="desc">Next-day highlight video + a staff/performer notes PDF, every show.</div></div></div>
-      <div class="row"><div><div class="name">One-Page Sites &amp; Refresh</div><div class="desc">A sharp one-page site, or new life for a dated one. Fast, high-design.</div></div></div>
-      <div class="row"><div><div class="name">Brand Kits</div><div class="desc">Logo, identity, reusable templates — so everything you send looks like one company.</div></div></div>
-      <div class="row"><div><div class="name">Local Presence Kit</div><div class="desc">Google Business, a reviews funnel, and the schema that makes you findable.</div></div></div>
-    </div>
-
-    <!-- RUN LEAN -->
-    <div class="col card">
-      <div class="top"><span class="chip chip-teal">Run lean</span></div>
-      <p class="promise">Operate like a bigger, more efficient organization.</p>
-      <div class="row"><div><div class="name">Automation Audit <span class="star t">★ start here</span></div><div class="desc">One-week diagnostic → a ranked plan to kill the manual busywork.</div></div><div class="price">$499</div></div>
-      <div class="row"><div><div class="name">Workflow Bots</div><div class="desc">Slack/Discord bots for FAQ, onboarding, notifications, ops.</div></div></div>
-      <div class="row"><div><div class="name">Self-Host Migration</div><div class="desc">Off stacked subscriptions onto tools you own — savings pay for it.</div></div></div>
-      <div class="row"><div><div class="name">Inbox &amp; Comms Triage</div><div class="desc">Tame a flooded inbox — sorted, prioritized, auto-handled where it can be.</div></div></div>
-      <div class="row"><div><div class="name">Proposal &amp; Doc Automation</div><div class="desc">Proposals, contracts, invoices generated from templates in minutes.</div></div></div>
-      <div class="row"><div><div class="name">Live Dashboards</div><div class="desc">Your messy spreadsheets, turned into one dashboard you actually read.</div></div></div>
-      <div class="row"><div><div class="name">"AI for Your Team" Workshop</div><div class="desc">A productized half-day that leaves your people faster than they were.</div></div></div>
-    </div>
-
-  </div>
+  <p class="pricing-note"><b>Custom per client</b> — you get a fixed scope and price before any work starts, never a surprise invoice. Every service above slots into one of these three rungs.</p>
 
   <!-- LABS -->
   <div class="labs">
-    <span class="tag">Upwield Labs · bigger builds</span>
+    <span class="chip chip-beam">Upwield Labs · bigger builds</span>
     <h3 class="display">When a project outgrows a service.</h3>
     <div class="items">
       <div class="it"><b>RAG / Knowledge-Base Builds</b><span>An assistant that actually knows your documents.</span></div>
@@ -131,19 +349,101 @@
       <div class="it"><b>Tools, Skills &amp; Experiments</b><span>The R&amp;D bench that keeps the rest sharp.</span></div>
     </div>
   </div>
+</section>
 
-  <div style="text-align:center;margin-top:42px">
-    <a class="btn btn-teal" href="intake.html?need=lean">Start with an audit <span class="arr">→</span></a>
+<!-- ============ CTA ============ -->
+<section class="invert" style="margin-top:96px">
+  <div class="wrap">
+    <div class="gradient-card">
+      <div class="eyebrow bare" style="justify-content:center">Start where it's cheapest to be wrong</div>
+      <h2 class="display" style="margin:16px auto 0;max-width:17ch">One week, one ranked plan, nothing to commit to.</h2>
+      <p style="margin:20px auto 0;max-width:52ch;font-size:17px">Answer five written questions. You get back a map of the manual work draining your team and what each fix is worth — yours to keep whether or not we build any of it.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px">
+        <a class="btn btn-ink" href="intake.html?need=lean">Start the audit <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="audit.html" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4);color:#fff">See a sample report</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap"><hr class="rule" style="margin-bottom:40px">
-    <div class="foot">
-      <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
-      <div class="meta"><b>Philadelphia</b> · hello@upwield.com · A one-person studio — you work with the maker.</div>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
+        <p style="margin-top:18px;font-family:var(--display);font-size:19px;color:var(--ink);
+                  letter-spacing:-.02em;line-height:1.35;max-width:20ch">A one-person studio — you work with the maker.</p>
+        <a href="intake.html" style="display:inline-flex;gap:8px;margin-top:20px;font-weight:600;color:var(--ink)">Start a project ↗</a>
+      </div>
+      <div>
+        <div class="lbl">Navigate</div>
+        <div style="display:grid;gap:11px;font-size:14.5px">
+          <a href="index.html">Home</a><a href="services.html">Services</a>
+          <a href="work.html">Work</a><a href="audit.html">Audit</a><a href="intake.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="lbl">Look sharp</div>
+        <div style="display:grid;gap:11px;font-size:14.5px">
+          <a href="decks.html">Deck Production</a><a href="media.html">Per-Event Media</a>
+          <a href="services.html">One-Page Sites</a><a href="services.html">Brand Kits</a>
+        </div>
+      </div>
+      <div>
+        <div class="lbl">Run lean</div>
+        <div style="display:grid;gap:11px;font-size:14.5px">
+          <a href="audit.html">Automation Audit</a><a href="services.html">Workflow Bots</a>
+          <a href="services.html">Self-Host Migration</a><a href="services.html">Live Dashboards</a>
+        </div>
+      </div>
+    </div>
+    <hr class="rule foot-rule">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13.5px;color:var(--ink-3)">
+      <span>© 2026 Upwield · Philadelphia</span>
+      <span>hello@upwield.com</span>
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var opts = Array.prototype.slice.call(document.querySelectorAll('.opt'));
+  var els = {
+    ghost:document.getElementById('p-ghost'), mark:document.getElementById('p-mark'),
+    lbl:document.getElementById('p-lbl'), name:document.getElementById('p-name'),
+    desc:document.getElementById('p-desc'), caps:document.getElementById('p-caps'),
+    price:document.getElementById('p-price'), term:document.getElementById('p-term'),
+    count:document.getElementById('p-count'), panel:document.getElementById('panel')
+  };
+
+  function render(btn){
+    var d = btn.dataset, p = d.pillar;
+    opts.forEach(function(o){ o.setAttribute('aria-selected', o===btn ? 'true':'false'); });
+
+    els.ghost.className = 'ghost ' + p;
+    els.mark.className  = p;
+    els.lbl.className   = 'plbl ' + p;
+    els.lbl.textContent = d.lbl;
+    els.name.innerHTML  = d.name;
+    els.desc.textContent = d.desc;
+
+    var caps = d.caps.split('|');
+    els.caps.innerHTML = caps.map(function(c){
+      return '<div class="cap"><span class="ck">✓</span>' + c + '</div>';
+    }).join('');
+    els.count.textContent = caps.length + ' capabilities';
+    els.price.firstChild.nodeValue = d.price;
+    els.term.textContent = d.term;
+  }
+
+  opts.forEach(function(btn){
+    btn.addEventListener('click', function(){ render(btn); });
+    btn.addEventListener('mouseenter', function(){ render(btn); });
+    btn.addEventListener('focus', function(){ render(btn); });
+  });
+
+  render(opts[0]);
+})();
+</script>
 </body>
 </html>

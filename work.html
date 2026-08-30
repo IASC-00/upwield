@@ -6,7 +6,7 @@
 <title>Work — Upwield</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="upwield.css">
 <style>
@@ -33,16 +33,19 @@
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav>
+<div class="navbar no-print">
+  <div class="inner">
     <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
     <div class="links">
-      <a href="work.html">Work</a>
-      <a href="index.html#services">Services</a>
+      <a href="work.html" aria-current="page">Work</a>
+      <a href="services.html">Services</a>
       <a href="index.html#maker">The maker</a>
     </div>
-    <a class="btn btn-ink" href="intake.html">Start a project <span class="arr">&rarr;</span></a>
-  </nav>
+    <a class="btn btn-beam" href="intake.html">Start a project <span class="arr">&rarr;</span></a>
+  </div>
+</div>
+
+<div class="wrap">
 
   <header class="head">
     <div class="eyebrow">Work</div>
@@ -80,7 +83,7 @@
   <div class="grid">
     <div class="item">
       <div class="kind">Sample deliverable</div>
-      <h3>A real $499 audit</h3>
+      <h3>A real audit, unedited</h3>
       <p>The whole thing, unedited — so you can judge the depth before paying for one.</p>
       <a class="go" href="sample-audit.pdf" target="_blank" rel="noopener">Open the sample audit &rarr;</a>
     </div>
@@ -105,8 +108,47 @@
     <a href="index.html#work">home page</a> without identifying the client.</p>
 
   <div style="margin:44px 0 70px">
-    <a class="btn btn-ink" href="intake.html">Start a project <span class="arr">&rarr;</span></a>
+    <a class="btn btn-beam" href="intake.html">Start a project <span class="arr">&rarr;</span></a>
   </div>
 </div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
+        <p style="margin-top:18px;font-family:var(--display);font-size:19px;color:var(--ink);
+                  letter-spacing:-.02em;line-height:1.35;max-width:20ch">A one-person studio — you work with the maker.</p>
+        <a href="intake.html" style="display:inline-flex;gap:8px;margin-top:20px;font-weight:600;color:var(--ink)">Start a project ↗</a>
+      </div>
+      <div>
+        <div class="lbl">Navigate</div>
+        <div style="display:grid;gap:11px;font-size:14.5px">
+          <a href="index.html">Home</a><a href="services.html">Services</a>
+          <a href="work.html">Work</a><a href="audit.html">Audit</a><a href="intake.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="lbl">Look sharp</div>
+        <div style="display:grid;gap:11px;font-size:14.5px">
+          <a href="decks.html">Deck Production</a><a href="media.html">Per-Event Media</a>
+          <a href="services.html">One-Page Sites</a><a href="services.html">Brand Kits</a>
+        </div>
+      </div>
+      <div>
+        <div class="lbl">Run lean</div>
+        <div style="display:grid;gap:11px;font-size:14.5px">
+          <a href="audit.html">Automation Audit</a><a href="services.html">Workflow Bots</a>
+          <a href="services.html">Self-Host Migration</a><a href="services.html">Live Dashboards</a>
+        </div>
+      </div>
+    </div>
+    <hr class="rule foot-rule">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13.5px;color:var(--ink-3)">
+      <span>© 2026 Upwield · Philadelphia</span>
+      <span>hello@upwield.com</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

@@ -1,65 +1,104 @@
 /* ============================================================
    UPWIELD — brand kit / design system
-   Ink & Ember · Bricolage Grotesque + Hanken Grotesk
-   Every Upwield surface (web + PDF) inherits this file.
+   "Deep Field" — dark navy ground, beam-blue signal,
+   ember/teal pillar coding retained from Ink & Ember.
+   Reskin 2026-08-16. Every Upwield surface (web + PDF) inherits this.
+
+   NOTE: token NAMES are unchanged from the light system on purpose.
+   --paper is the ground, --ink is the type, whatever their values.
+   That is why 9 pages invert from this one file.
    ============================================================ */
 
 :root{
-  /* core palette — locked 2026-06-13 */
-  --ink:#16181D;          /* near-black */
-  --ink-2:#2C2F37;        /* softened ink for body text */
-  --ink-3:#5A5E68;        /* muted */
-  --paper:#F5F2EA;        /* warm paper */
-  --paper-2:#EFEBE0;      /* card / inset */
-  --paper-edge:#E3DDCE;   /* hairline on paper */
-  --ember:#F15A38;        /* LOOK SHARP accent */
-  --ember-deep:#D2451F;
-  --teal:#11998A;         /* RUN LEAN accent */
-  --teal-deep:#0C7468;
-  --white:#FFFFFF;
+  /* ---- ground (was warm paper, now deep field) ---- */
+  --paper:#050B18;        /* page ground */
+  --paper-2:#0B1526;      /* raised card / inset */
+  --paper-3:#111E33;      /* hover / active row */
+  --paper-edge:rgba(255,255,255,.10);  /* hairline */
+  --edge-2:rgba(255,255,255,.18);
 
-  /* type */
-  --display:'Bricolage Grotesque', Georgia, serif;
-  --body:'Hanken Grotesk', system-ui, sans-serif;
+  /* ---- type colour (was near-black, now near-white) ---- */
+  --ink:#E9F3FF;          /* headings */
+  --ink-2:#B8C9E0;        /* body */
+  --ink-3:#8296B4;        /* muted / captions */
+  --white:rgba(255,255,255,.045);   /* glass card fill */
+  --glass-2:rgba(255,255,255,.075);
 
-  /* rhythm */
-  --r-sm:8px; --r-md:14px; --r-lg:22px; --r-pill:999px;
-  --shadow-sm:0 1px 2px rgba(22,24,29,.06), 0 6px 18px rgba(22,24,29,.05);
-  --shadow-lg:0 2px 6px rgba(22,24,29,.08), 0 24px 60px rgba(22,24,29,.12);
+  /* ---- signal ---- */
+  --beam:#3F82FF;         /* primary — links, focus, CTA */
+  --beam-deep:#0753D7;
+  --sky:#7DD3FC;          /* highlight, gradient partner */
+  --ember:#FF6A45;        /* LOOK SHARP pillar */
+  --ember-deep:#E24A24;
+  --teal:#2DD4BF;         /* RUN LEAN pillar */
+  --teal-deep:#14A99A;
+
+  /* ---- type ---- */
+  --display:'Outfit', system-ui, sans-serif;
+  --body:'Inter', system-ui, sans-serif;
+  /* Bricolage Grotesque lives here if the geometric face gets vetoed:
+     --display:'Bricolage Grotesque', Georgia, serif;  */
+
+  /* ---- rhythm ---- */
+  --r-sm:10px; --r-md:16px; --r-lg:22px; --r-xl:28px; --r-pill:999px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4), 0 8px 28px rgba(0,0,0,.35);
+  --shadow-lg:0 2px 8px rgba(0,0,0,.5), 0 32px 80px rgba(0,0,0,.55);
+  --glow:0 0 0 1px rgba(63,130,255,.30), 0 12px 40px rgba(63,130,255,.22);
   --maxw:1100px;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+
 body{
   font-family:var(--body);
-  color:var(--ink);
+  color:var(--ink-2);
   background:var(--paper);
-  line-height:1.55;
+  line-height:1.6;
   font-size:17px;
-  /* subtle paper grain for warmth + depth (not a flat fill) */
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  /* the field: two cool light sources, never a flat fill */
+  background-image:
+    radial-gradient(1200px 680px at 12% -8%, rgba(63,130,255,.20), transparent 62%),
+    radial-gradient(900px 560px at 92% 4%, rgba(125,211,252,.10), transparent 60%);
+  background-attachment:fixed;
 }
 
 /* ---------- type ---------- */
-.display{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.02em;color:var(--ink)}
-h1.display{font-size:clamp(48px,7.4vw,92px)}
-h2.display{font-size:clamp(32px,4.4vw,52px);letter-spacing:-.025em}
-h3.display{font-size:clamp(22px,2.4vw,28px);letter-spacing:-.015em}
-.eyebrow{font-family:var(--body);font-weight:700;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
-.lead{font-size:clamp(18px,2vw,22px);color:var(--ink-2);line-height:1.5}
+.display{font-family:var(--display);font-weight:600;line-height:1.03;letter-spacing:-.03em;color:var(--ink)}
+h1.display{font-size:clamp(46px,7.2vw,88px);font-weight:600}
+h2.display{font-size:clamp(31px,4.3vw,52px);letter-spacing:-.035em}
+h3.display{font-size:clamp(21px,2.3vw,27px);letter-spacing:-.02em;font-weight:600}
+
+/* the one type move: key phrase resolves from white into beam */
+.beam{
+  background:linear-gradient(96deg,var(--sky) 4%,var(--beam) 52%,#2C79FF 96%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+
+.eyebrow{
+  font-family:var(--body);font-weight:600;font-size:11.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-3);
+  display:inline-flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--edge-2);flex:none}
+.eyebrow.bare::before{display:none}
+
+.lead{font-size:clamp(17px,1.9vw,21px);color:var(--ink-2);line-height:1.58}
 .muted{color:var(--ink-3)}
 em.ember{font-style:normal;color:var(--ember)}
 em.teal{font-style:normal;color:var(--teal)}
+em.beam{font-style:normal;color:var(--beam)}
+a{color:var(--beam)}
 
 /* ---------- layout ---------- */
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
-section{padding:92px 0}
+section{padding:104px 0}
 .rule{height:1px;background:var(--paper-edge);border:0}
 
-/* ---------- wordmark + wedge motif ---------- */
-.wordmark{font-family:var(--display);font-weight:700;font-size:25px;letter-spacing:-.02em;color:var(--ink);
+/* ---------- wordmark + wedge motif (Upwield's own mark, kept) ---------- */
+.wordmark{font-family:var(--display);font-weight:600;font-size:25px;letter-spacing:-.03em;color:var(--ink);
   display:inline-flex;align-items:baseline;text-decoration:none}
 .wordmark .wedge{margin-left:3px}
 .wedge{display:inline-block;width:.62em;height:.62em;
@@ -67,32 +106,107 @@ section{padding:92px 0}
   clip-path:polygon(50% 0,100% 100%,0 100%);   /* upward triangle */
   transform:translateY(-.04em)}
 .wedge.teal{background:var(--teal)}
+.wedge.beam{background:var(--beam)}
 .bullet-wedge{display:inline-block;width:9px;height:9px;margin-right:10px;
   clip-path:polygon(50% 0,100% 100%,0 100%);vertical-align:baseline}
 
+/* ---------- glass nav ---------- */
+.navbar{position:sticky;top:14px;z-index:60;padding:0 32px;margin-top:14px}
+.navbar .inner{
+  max-width:var(--maxw);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:12px 14px 12px 22px;border-radius:var(--r-pill);
+  background:rgba(8,16,32,.62);
+  border:1px solid var(--paper-edge);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  box-shadow:0 10px 40px rgba(0,0,0,.45);
+}
+.navbar .links{display:flex;align-items:center;gap:28px}
+.navbar .links a{
+  color:var(--ink-2);text-decoration:none;font-size:14.5px;font-weight:500;
+  padding:4px 0;position:relative;transition:color .2s var(--ease)}
+.navbar .links a:hover{color:var(--ink)}
+.navbar .links a[aria-current="page"]{color:var(--ink)}
+.navbar .links a[aria-current="page"]::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;
+  background:linear-gradient(90deg,var(--sky),var(--beam))}
+
 /* ---------- buttons ---------- */
-.btn{font-family:var(--body);font-weight:700;font-size:15px;letter-spacing:.01em;
-  display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:var(--r-pill);
-  border:0;cursor:pointer;text-decoration:none;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s}
+.btn{font-family:var(--body);font-weight:600;font-size:14.5px;letter-spacing:.005em;
+  display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:var(--r-pill);
+  border:0;cursor:pointer;text-decoration:none;
+  transition:transform .2s var(--ease),box-shadow .25s var(--ease),background .2s,border-color .2s}
 .btn:hover{transform:translateY(-2px)}
 .btn .arr{transition:transform .2s var(--ease)}
 .btn:hover .arr{transform:translateX(3px)}
-.btn-ember{background:var(--ember);color:#fff;box-shadow:0 8px 22px rgba(241,90,56,.28)}
-.btn-ember:hover{background:var(--ember-deep)}
-.btn-teal{background:var(--teal);color:#fff;box-shadow:0 8px 22px rgba(17,153,138,.26)}
-.btn-teal:hover{background:var(--teal-deep)}
-.btn-ink{background:var(--ink);color:var(--paper)}
-.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);box-shadow:none}
-.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-beam{background:linear-gradient(180deg,var(--beam),var(--beam-deep));color:#fff;
+  box-shadow:0 10px 30px rgba(63,130,255,.35)}
+.btn-beam:hover{box-shadow:0 14px 40px rgba(63,130,255,.48)}
+.btn-ember{background:var(--ember);color:#0b0f16;font-weight:700;box-shadow:0 10px 28px rgba(255,106,69,.28)}
+.btn-ember:hover{background:var(--ember-deep);color:#fff}
+.btn-teal{background:var(--teal);color:#04231f;font-weight:700;box-shadow:0 10px 28px rgba(45,212,191,.24)}
+.btn-teal:hover{background:var(--teal-deep);color:#fff}
+.btn-ink{background:var(--ink);color:var(--paper);font-weight:700}
+.btn-ghost{background:rgba(255,255,255,.05);color:var(--ink);
+  border:1px solid var(--edge-2);box-shadow:none;backdrop-filter:blur(10px)}
+.btn-ghost:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.30)}
+
+/* keyboard focus — visible, never removed */
+a:focus-visible,button:focus-visible,summary:focus-visible,
+input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:2px solid var(--sky);outline-offset:3px;border-radius:4px}
 
 /* ---------- pillar chips ---------- */
-.chip{font-weight:800;font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+.chip{font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
   padding:7px 14px;border-radius:var(--r-pill);display:inline-block}
-.chip-ember{background:var(--ember);color:#fff}
-.chip-teal{background:var(--teal);color:#fff}
+.chip-ember{background:rgba(255,106,69,.14);color:var(--ember);border:1px solid rgba(255,106,69,.32)}
+.chip-teal{background:rgba(45,212,191,.13);color:var(--teal);border:1px solid rgba(45,212,191,.30)}
+.chip-beam{background:rgba(63,130,255,.14);color:#9CC2FF;border:1px solid rgba(63,130,255,.34)}
 
-/* ---------- cards ---------- */
-.card{background:var(--white);border:1px solid var(--paper-edge);border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
+/* ---------- cards (glass) ---------- */
+.card{
+  background:var(--white);
+  border:1px solid var(--paper-edge);
+  border-radius:var(--r-xl);
+  box-shadow:var(--shadow-sm);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:border-color .25s var(--ease),background .25s var(--ease),transform .25s var(--ease);
+}
+.card:hover{background:var(--glass-2);border-color:var(--edge-2)}
+
+/* blueprint grid — the studio's "systems" texture, used sparingly */
+.blueprint{position:relative;overflow:hidden}
+.blueprint::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(125,211,252,.07) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(125,211,252,.07) 1px,transparent 1px);
+  background-size:46px 46px;
+  mask-image:radial-gradient(120% 90% at 78% 12%,#000 12%,transparent 72%);
+  -webkit-mask-image:radial-gradient(120% 90% at 78% 12%,#000 12%,transparent 72%);
+}
+
+/* ---------- light inversion band (the CTA moment) ---------- */
+.invert{
+  background:linear-gradient(180deg,#EAF2FF 0%,#F6FAFF 46%,#EAF2FF 100%);
+  padding:96px 0}
+.invert .gradient-card{
+  border-radius:var(--r-xl);padding:78px 40px;text-align:center;
+  background:linear-gradient(112deg,#0B5BE8 0%,var(--beam) 42%,#63A9FF 78%,#8FD0FF 100%);
+  box-shadow:0 30px 80px rgba(37,99,235,.32);color:#fff}
+.invert .gradient-card h2{color:#fff}
+.invert .gradient-card p{color:rgba(255,255,255,.90)}
+.invert .eyebrow{color:rgba(255,255,255,.82)}
+.invert .eyebrow::before{background:rgba(255,255,255,.45)}
+
+/* ---------- footer ---------- */
+.site-foot{background:#030812;border-top:1px solid var(--paper-edge);padding:72px 0 40px}
+.site-foot a{color:var(--ink-3);text-decoration:none;transition:color .2s}
+.site-foot a:hover{color:var(--ink)}
+.site-foot .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+.site-foot .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);
+  margin-bottom:16px;font-weight:600}
+.site-foot .foot-rule{margin:44px 0 22px}
 
 /* ---------- reveal on load ---------- */
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -100,23 +214,56 @@ section{padding:92px 0}
 .d1{animation-delay:.06s}.d2{animation-delay:.14s}.d3{animation-delay:.22s}
 .d4{animation-delay:.30s}.d5{animation-delay:.38s}.d6{animation-delay:.46s}
 
-/* ---------- mobile ---------- */
-@media(max-width:680px){
-  nav .links{display:none!important}
-  .pillars,.proof-grid,.steps,.cols,.labs .items{grid-template-columns:1fr!important}
-  section{padding:60px 0}
-  .band{padding:40px 30px}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rise{animation:none;opacity:1;transform:none}
 }
 
-/* ---------- one-pager sheet + print/PDF ---------- */
+/* ---------- mobile ---------- */
+@media(max-width:860px){
+  .site-foot .cols{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:680px){
+  body{font-size:16px}
+  .navbar{top:8px;padding:0 16px}
+  .navbar .inner{padding:10px 10px 10px 16px}
+  nav .links,.navbar .links{display:none!important}
+  .wrap{padding:0 20px}
+  .pillars,.proof-grid,.steps,.cols,.labs .items{grid-template-columns:1fr!important}
+  section{padding:64px 0}
+  .band{padding:40px 26px}
+  .invert{padding:64px 0}
+  .invert .gradient-card{padding:52px 24px}
+  .site-foot .cols{grid-template-columns:1fr}
+}
+
+/* ---------- one-pager sheet + print/PDF ----------
+   Print stays on paper: ink on white, never the deep field. */
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.sheet{width:8.5in;min-height:11in;margin:30px auto;background:var(--paper);
+.sheet{
+  /* a sheet is paper: put the ink scale back inside it, so every token-driven
+     rule on these one-pagers resolves dark-on-white instead of inheriting the field */
+  --paper:#FFFFFF; --paper-2:#F3F6FB; --paper-3:#E9EEF7;
+  --paper-edge:#DDE3EC; --edge-2:#C6CFDC;
+  --ink:#16181D; --ink-2:#3A4150; --ink-3:#6B7280;
+  --white:#FFFFFF; --glass-2:#F3F6FB;
+  --ember:#E24A24; --teal:#0C7468; --beam:#0753D7; --sky:#2C79FF;
+
+  width:8.5in;min-height:11in;margin:30px auto;background:#fff;color:var(--ink-2);
   padding:.62in .64in;position:relative;box-shadow:var(--shadow-lg);overflow:hidden}
-.sheet .topbar{position:absolute;top:0;left:0;right:0}
+.sheet .topbar{position:absolute;top:0;left:0;right:0;display:flex;height:5px}
+.sheet .topbar i{flex:1}
+.sheet .topbar .e{background:var(--ember)}.sheet .topbar .t{background:var(--teal)}
+.sheet .display,.sheet h1,.sheet h2,.sheet h3,.sheet .wordmark{color:var(--ink)}
+.sheet .card{background:#fff;border-color:var(--paper-edge);backdrop-filter:none;box-shadow:var(--shadow-sm)}
 @page{size:Letter;margin:0}
 @media print{
-  body{background:#fff}
+  body{background:#fff;background-image:none;color:#16181D}
+  .display{color:#16181D}
+  .beam{-webkit-text-fill-color:#0753D7;color:#0753D7;background:none}
+  .card{background:#fff;border:1px solid #E3DDCE;box-shadow:none;backdrop-filter:none}
   .sheet{margin:0;box-shadow:none;width:8.5in;min-height:11in}
   .rise{animation:none}
-  .no-print{display:none!important}
+  .navbar,.no-print{display:none!important}
 }

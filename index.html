@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="upwield.css">
 <style>
   /* page-specific composition */
@@ -82,12 +82,12 @@
   .dk .sp{flex:1}
   .dk .foot2{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:.03em;opacity:.72}
   .dk .dot{width:7px;height:7px;flex-shrink:0;clip-path:polygon(50% 0,100% 100%,0 100%)}
-  .dk.dark{background:var(--ink);color:var(--paper)}.dk.dark .cat{color:var(--teal)}
+  .dk.dark{background:#0A1220;color:var(--ink);border:1px solid var(--paper-edge)}.dk.dark .cat{color:var(--teal)}
   .bars{display:flex;align-items:flex-end;gap:5px;height:50px;margin-bottom:16px}
-  .bars b{flex:1;border-radius:3px 3px 0 0;background:rgba(245,242,234,.16)}.bars b.hot{background:var(--teal)}
+  .bars b{flex:1;border-radius:3px 3px 0 0;background:rgba(255,255,255,.14)}.bars b.hot{background:var(--teal)}
   .bigstat{font-family:var(--display);font-weight:700;font-size:40px;line-height:1;letter-spacing:-.03em;color:var(--ember);margin-bottom:14px}
-  .bigstat small{display:block;font-family:var(--body);font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--paper);opacity:.66;margin-top:7px;text-transform:uppercase}
-  .dk.light{background:var(--white);color:var(--ink);border:1px solid var(--paper-edge)}.dk.light .cat{color:var(--ember)}
+  .bigstat small{display:block;font-family:var(--body);font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--ink-3);opacity:1;margin-top:7px;text-transform:uppercase}
+  .dk.light{background:rgba(255,255,255,.055);color:var(--ink);border:1px solid var(--paper-edge)}.dk.light .cat{color:var(--ember)}
   .dk .qmark{font-family:var(--display);font-weight:700;font-size:50px;line-height:.5;color:var(--ember);height:24px}
   .dk .quote{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.16;letter-spacing:-.01em;margin-top:12px}
 
@@ -123,10 +123,12 @@
   .maker .sign b{color:var(--teal);font-weight:700}
 
   /* CTA band */
-  .band{background:var(--ink);color:var(--paper);border-radius:var(--r-lg);padding:60px 56px;
+  .band{border-radius:var(--r-xl);padding:60px 56px;color:#fff;
+    background:linear-gradient(112deg,#0B5BE8 0%,var(--beam) 42%,#63A9FF 78%,#8FD0FF 100%);
+    box-shadow:0 26px 70px rgba(37,99,235,.30);
     display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
-  .band h2{color:var(--paper);max-width:18ch}
-  .band p{color:#B8B4A8;margin-top:14px;max-width:42ch;font-size:16px}
+  .band h2{color:#fff;max-width:18ch}
+  .band p{color:rgba(255,255,255,.90);margin-top:14px;max-width:42ch;font-size:16px}
 
   /* what happens next */
   .next{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
@@ -175,18 +177,17 @@
 </script>
 </head>
 <body>
-<div class="topbar"><i class="e"></i><i class="t"></i></div>
-
-<div class="wrap">
-  <nav>
+<div class="navbar no-print">
+  <div class="inner">
     <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
     <div class="links">
       <a href="work.html">Work</a>
-      <a href="#services">Services</a>
+      <a href="services.html">Services</a>
+      <a href="#how">How it works</a>
       <a href="#maker">The maker</a>
     </div>
-    <a class="btn btn-ink" href="#start">Start a project <span class="arr">→</span></a>
-  </nav>
+    <a class="btn btn-beam" href="#start">Start a project <span class="arr">→</span></a>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -194,7 +195,7 @@
   <div class="wrap">
     <div class="big-wedge"></div>
     <div class="eyebrow rise d1">Design + AI systems studio · Philadelphia</div>
-    <h1 class="display rise d2">Punch above<br>your size<span class="wedge" style="width:.5em;height:.5em;margin-left:6px"></span></h1>
+    <h1 class="display rise d2">Punch above<br><span class="beam">your size</span><span class="wedge" style="width:.5em;height:.5em;margin-left:6px"></span></h1>
     <p class="lead rise d3">Upwield makes small businesses <em class="ember">look sharp</em> and <em class="teal">run lean</em> — sharp design and smart automation from one person, so a 3-person shop shows up, and runs, like a 30-person one.</p>
     <div class="cta-row rise d4">
       <a class="btn btn-teal" href="intake.html?need=lean">Start with an audit <span class="arr">→</span></a>
@@ -392,8 +393,8 @@
         <p>Tell Ian in five questions. He'll point to the fastest fix, whether that's a deck this week or an automation that saves you ten hours a month.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px">
-        <a class="btn btn-teal" href="intake.html?need=lean">Start with an audit <span class="arr">→</span></a>
-        <a class="btn btn-ghost" style="border-color:var(--paper);color:var(--paper)" href="intake.html?need=sharp">Start a deck <span class="arr">→</span></a>
+        <a class="btn btn-ink" href="intake.html?need=lean">Start with an audit <span class="arr">→</span></a>
+        <a class="btn btn-ghost" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.42);color:#fff" href="intake.html?need=sharp">Start a deck <span class="arr">→</span></a>
       </div>
     </div>
     <div class="next">
@@ -404,12 +405,41 @@
   </div>
 </section>
 
-<footer>
+<footer class="site-foot">
   <div class="wrap">
-    <hr class="rule" style="margin-bottom:40px">
-    <div class="foot">
-      <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
-      <div class="meta"><b>Philadelphia</b> · hello@upwield.com · A one-person studio — you work with the maker.</div>
+    <div class="cols">
+      <div>
+        <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
+        <p style="margin-top:18px;font-family:var(--display);font-size:19px;color:var(--ink);
+                  letter-spacing:-.02em;line-height:1.35;max-width:20ch">A one-person studio — you work with the maker.</p>
+        <a href="intake.html" style="display:inline-flex;gap:8px;margin-top:20px;font-weight:600;color:var(--ink)">Start a project ↗</a>
+      </div>
+      <div>
+        <div class="lbl">Navigate</div>
+        <div style="display:grid;gap:11px;font-size:14.5px">
+          <a href="index.html">Home</a><a href="services.html">Services</a>
+          <a href="work.html">Work</a><a href="audit.html">Audit</a><a href="intake.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="lbl">Look sharp</div>
+        <div style="display:grid;gap:11px;font-size:14.5px">
+          <a href="decks.html">Deck Production</a><a href="media.html">Per-Event Media</a>
+          <a href="services.html">One-Page Sites</a><a href="services.html">Brand Kits</a>
+        </div>
+      </div>
+      <div>
+        <div class="lbl">Run lean</div>
+        <div style="display:grid;gap:11px;font-size:14.5px">
+          <a href="audit.html">Automation Audit</a><a href="services.html">Workflow Bots</a>
+          <a href="services.html">Self-Host Migration</a><a href="services.html">Live Dashboards</a>
+        </div>
+      </div>
+    </div>
+    <hr class="rule foot-rule">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13.5px;color:var(--ink-3)">
+      <span>© 2026 Upwield · Philadelphia</span>
+      <span>hello@upwield.com</span>
     </div>
   </div>
 </footer>
