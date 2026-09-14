@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Upwield — design + AI systems studio · Philadelphia</title>
-<meta name="description" content="Upwield is a one-person studio that makes small organizations look sharp and run lean — design and AI systems under one roof.">
+<meta name="description" content="Upwield is a one-person studio that makes small organizations look sharp and run lean, with design and AI systems under one roof.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Upwield — design + AI systems studio">
 <meta property="og:description" content="Make a small organization look sharp and run lean. Punch above your size. Philadelphia.">
@@ -30,7 +30,7 @@
   /* hero */
   .hero{padding:64px 0 70px;position:relative;overflow:hidden}
   .hero .big-wedge{position:absolute;right:-40px;top:30px;width:340px;height:340px;
-    background:linear-gradient(160deg,var(--ember) 0%,var(--ember) 48%,var(--teal) 52%,var(--teal) 100%);
+    background:var(--ember);
     clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.10;transform:rotate(8deg)}
   .hero h1{max-width:14ch;position:relative}
   .hero .lead{max-width:46ch;margin-top:24px}
@@ -60,7 +60,7 @@
   .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
   .case{padding:26px 24px 24px;display:flex;flex-direction:column;position:relative;overflow:hidden}
   .case .edge{position:absolute;top:0;left:0;right:0;height:4px}
-  .case .tag{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+  .case .tag{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
   .case .tag.e{color:var(--ember)}
   .case .ttl{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.12;letter-spacing:-.01em;margin:11px 0 13px}
   .case .pa{font-size:14px;color:var(--ink-3);line-height:1.5}
@@ -77,16 +77,16 @@
     padding:20px 17px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
   .dk:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
   .dk .tb{position:absolute;top:0;left:0;right:0;height:5px;display:flex}.dk .tb i{flex:1}
-  .dk .cat{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+  .dk .cat{font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
   .dk .ttl{font-family:var(--display);font-weight:700;font-size:16.5px;line-height:1.13;letter-spacing:-.01em;margin-top:9px}
   .dk .sp{flex:1}
-  .dk .foot2{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:.03em;opacity:.72}
+  .dk .foot2{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.03em;color:var(--ink-2)}
   .dk .dot{width:7px;height:7px;flex-shrink:0;clip-path:polygon(50% 0,100% 100%,0 100%)}
   .dk.dark{background:#0A1220;color:var(--ink);border:1px solid var(--paper-edge)}.dk.dark .cat{color:var(--teal)}
   .bars{display:flex;align-items:flex-end;gap:5px;height:50px;margin-bottom:16px}
   .bars b{flex:1;border-radius:3px 3px 0 0;background:rgba(255,255,255,.14)}.bars b.hot{background:var(--teal)}
   .bigstat{font-family:var(--display);font-weight:700;font-size:40px;line-height:1;letter-spacing:-.03em;color:var(--ember);margin-bottom:14px}
-  .bigstat small{display:block;font-family:var(--body);font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--ink-3);opacity:1;margin-top:7px;text-transform:uppercase}
+  .bigstat small{display:block;font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--ink-3);opacity:1;margin-top:7px;text-transform:uppercase}
   .dk.light{background:rgba(255,255,255,.055);color:var(--ink);border:1px solid var(--paper-edge)}.dk.light .cat{color:var(--ember)}
   .dk .qmark{font-family:var(--display);font-weight:700;font-size:50px;line-height:.5;color:var(--ember);height:24px}
   .dk .quote{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.16;letter-spacing:-.01em;margin-top:12px}
@@ -97,12 +97,12 @@
     transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
   .ship:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
   .ship .bar{position:absolute;top:0;left:0;right:0;height:4px}
-  .ship .k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .ship .k{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
   .ship .nm{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.01em;margin:9px 0 7px;display:flex;align-items:center;gap:8px}
   .ship .nm .arr{color:var(--ember);transition:transform .2s var(--ease)}
   .ship:hover .nm .arr{transform:translate(3px,-3px)}
   .ship .ds{font-size:14px;color:var(--ink-3);line-height:1.46}
-  .ship .live{display:inline-flex;align-items:center;gap:7px;margin-top:15px;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+  .ship .live{display:inline-flex;align-items:center;gap:7px;margin-top:15px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
   .ship .live i{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(17,153,138,.45)}70%{box-shadow:0 0 0 7px rgba(17,153,138,0)}100%{box-shadow:0 0 0 0 rgba(17,153,138,0)}}
   .ships-foot{margin-top:18px;font-size:15px;color:var(--ink-3);max-width:62ch}
@@ -124,8 +124,8 @@
 
   /* CTA band */
   .band{border-radius:var(--r-xl);padding:60px 56px;color:#fff;
-    background:linear-gradient(112deg,#0B5BE8 0%,var(--beam) 42%,#63A9FF 78%,#8FD0FF 100%);
-    box-shadow:0 26px 70px rgba(37,99,235,.30);
+    background:var(--beam-deep);
+    box-shadow:0 24px 60px rgba(0,0,0,.35);
     display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
   .band h2{color:#fff;max-width:18ch}
   .band p{color:rgba(255,255,255,.90);margin-top:14px;max-width:42ch;font-size:16px}
@@ -143,7 +143,7 @@
   /* engagement terms strip */
   .terms{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;padding-top:26px;border-top:1px solid var(--paper-edge)}
   .t-item{font-size:14px;color:var(--ink-3);line-height:1.5}
-  .t-item .k{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+  .t-item .k{display:block;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
   .t-item b{color:var(--ink-2);font-weight:700}
 
   /* footer */
@@ -165,7 +165,7 @@
   "@context":"https://schema.org",
   "@type":"ProfessionalService",
   "name":"Upwield",
-  "description":"A one-person design and AI systems studio in Philadelphia — making small organizations look sharp and run lean.",
+  "description":"A one-person design and AI systems studio in Philadelphia that makes small organizations look sharp and run lean.",
   "url":"https://upwield.com/",
   "email":"hello@upwield.com",
   "founder":{"@type":"Person","name":"Ian"},
@@ -196,12 +196,12 @@
     <div class="big-wedge"></div>
     <div class="eyebrow rise d1">Design + AI systems studio · Philadelphia</div>
     <h1 class="display rise d2">Punch above<br><span class="beam">your size</span><span class="wedge" style="width:.5em;height:.5em;margin-left:6px"></span></h1>
-    <p class="lead rise d3">Upwield makes small businesses <em class="ember">look sharp</em> and <em class="teal">run lean</em> — sharp design and smart automation from one person, so a 3-person shop shows up, and runs, like a 30-person one.</p>
+    <p class="lead rise d3">Upwield makes small businesses <em class="ember">look sharp</em> and <em class="teal">run lean</em>. One person handles the design and the automation, so a 3-person shop shows up and runs like a 30-person one.</p>
     <div class="cta-row rise d4">
       <a class="btn btn-teal" href="intake.html?need=lean">Start with an audit <span class="arr">→</span></a>
       <a class="btn btn-ember" href="#work">See the work <span class="arr">→</span></a>
     </div>
-    <p class="cta-note rise d5">A one-person studio — you work with the maker, not an account manager.</p>
+    <p class="cta-note rise d5">A one-person studio. The person you talk to is the person doing the work.</p>
   </div>
 </header>
 
@@ -216,15 +216,15 @@
         <div class="top"><span class="chip chip-ember">Look sharp</span></div>
         <p class="promise">Show up like a bigger, more credible organization.</p>
         <div class="svc"><div><div class="name">Deck Production</div><div class="desc">Investor, board, and advocacy decks that look like a design studio made them. Priced per slide.</div></div></div>
-        <div class="svc"><div><div class="name">Per-Event Media</div><div class="desc">A next-day highlight video and a staff/performer notes PDF — every show, on a template.</div></div></div>
+        <div class="svc"><div><div class="name">Per-Event Media</div><div class="desc">A next-day highlight video and a staff/performer notes PDF for every show, built on a template.</div></div></div>
         <div class="svc"><div><div class="name">Brand Kits <span class="tag e">soon</span></div><div class="desc">Logo, identity, and reusable templates so everything you send looks like one company.</div></div></div>
       </div>
 
       <div class="pillar card">
         <div class="top"><span class="chip chip-teal">Run lean</span></div>
-        <p class="promise">Get the repetitive work off your plate — run like a bigger team without hiring one.</p>
-        <div class="svc"><div><div class="name">Automation Audit</div><div class="desc">A one-week diagnostic that finds the manual busywork and hands you a ranked plan to kill it. Remote, from five written answers — software and repeated tasks only, no visit.</div></div><div class="tag">from $2,500</div></div>
-        <div class="svc"><div><div class="name">Workflow Bots</div><div class="desc">Slack and Discord bots that handle the repetitive work — FAQ, onboarding, notifications, ops.</div></div></div>
+        <p class="promise">Get the repetitive work off your plate and run like a bigger team without hiring one.</p>
+        <div class="svc"><div><div class="name">Automation Audit</div><div class="desc">A one-week diagnostic that finds the manual busywork and hands you a ranked plan to kill it. Remote, from five written answers. It covers software and repeated tasks only, with no visit.</div></div><div class="tag">from $2,500</div></div>
+        <div class="svc"><div><div class="name">Workflow Bots</div><div class="desc">Slack and Discord bots that handle the repetitive work: FAQ, onboarding, notifications, ops.</div></div></div>
         <div class="svc"><div><div class="name">Self-Host Migration</div><div class="desc">Move off stacked monthly subscriptions onto tools you own. Your savings pay for the switch.</div></div></div>
       </div>
 
@@ -240,17 +240,17 @@
   <div class="wrap">
     <div class="eyebrow">How it works · what it costs</div>
     <h2 class="display" style="margin-top:8px;max-width:20ch">Start small. The work earns the next thing.</h2>
-    <p class="lead muted" style="margin-top:14px;max-width:56ch">No long contract to begin. One small, concrete project — then the work shows what's worth building next. Three rungs up the ladder:</p>
+    <p class="lead muted" style="margin-top:14px;max-width:56ch">No long contract to begin. Start with one small, concrete project. The work then shows what's worth building next. Three rungs up the ladder:</p>
     <div class="steps">
-      <div class="step"><div class="n">1</div><h3>Start small</h3><p>A <b>$2,500</b> audit, or a single deck priced per slide. Low risk, nothing to commit to — and the audit lands in <b>one week</b>.</p></div>
-      <div class="step"><div class="n">2</div><h3>Get something concrete</h3><p>A ranked plan with hours and dollars saved — or a deck you can present Monday. Yours to keep either way.</p></div>
-      <div class="step"><div class="n">3</div><h3>Build what it surfaces</h3><p>The bot, the migration, the brand kit, the deck system — a <b>fixed-scope quote, from $5,000</b>, before any work starts. You only fund what the first step proved worth it.</p></div>
+      <div class="step"><div class="n">1</div><h3>Start small</h3><p>A <b>$2,500</b> audit, or a single deck priced per slide. Low risk, nothing to commit to, and the audit lands in <b>one week</b>.</p></div>
+      <div class="step"><div class="n">2</div><h3>Get something concrete</h3><p>A ranked plan with hours and dollars saved, or a deck you can present Monday. Yours to keep either way.</p></div>
+      <div class="step"><div class="n">3</div><h3>Build what it surfaces</h3><p>The bot, the migration, the brand kit or the deck system gets a <b>fixed-scope quote, from $5,000</b>, before any work starts. You only fund what the first step proved worth it.</p></div>
       <div class="step"><div class="n">4</div><h3>Stay lean</h3><p>An optional <b>monthly partnership</b> keeps the systems running and the work sharp. Custom-scoped, only a couple of slots at a time.</p></div>
     </div>
     <div class="terms">
       <div class="t-item"><span class="k">Turnaround</span> Audit in a week · decks in days · <b>replies within one business day</b>.</div>
-      <div class="t-item"><span class="k">Pricing</span> Custom per client. You get a <b>fixed scope and price before any work</b> — never a surprise invoice.</div>
-      <div class="t-item"><span class="k">Availability</span> A one-person studio — <b>only a couple of projects run at once</b>, by design.</div>
+      <div class="t-item"><span class="k">Pricing</span> Custom per client. You get a <b>fixed scope and price before any work</b>, so the invoice holds no surprises.</div>
+      <div class="t-item"><span class="k">Availability</span> A one-person studio, so <b>only a couple of projects run at once</b>.</div>
     </div>
   </div>
 </section>
@@ -260,14 +260,14 @@
   <div class="wrap">
     <div class="eyebrow">What the work looks like</div>
     <h2 class="display" style="margin-top:8px;max-width:18ch">Three problems, and what got built.</h2>
-    <p class="lead muted" style="margin-top:14px;max-width:54ch">Real work for paying clients — anonymized, because what's built in the room stays in the room. Three recent ones:</p>
+    <p class="lead muted" style="margin-top:14px;max-width:54ch">Real work for paying clients. It's anonymized, because what's built in the room stays in the room. Three recent ones:</p>
 
     <div class="cases">
       <div class="case card">
         <div class="edge" style="background:var(--ember)"></div>
         <div class="tag e">Look sharp · Decks</div>
         <div class="ttl">Briefing decks that hold a room of aides</div>
-        <div class="pa"><b>Problem:</b> small teams walking into big rooms with slides that shrink them. <b>Built:</b> a reusable deck system — one focal point per slide, sourced figures, zero template look — re-skinned per audience.</div>
+        <div class="pa"><b>Problem:</b> small teams walking into big rooms with slides that shrink them. <b>Built:</b> a reusable deck system with one focal point per slide, sourced figures and no template look, re-skinned per audience.</div>
         <div class="res"><div class="num">Dozens<small>investor, board, civic &amp; advocacy decks shipped</small></div></div>
       </div>
 
@@ -275,16 +275,16 @@
         <div class="edge" style="background:var(--teal)"></div>
         <div class="tag">Run lean · Automation</div>
         <div class="ttl">A 300,000-message inbox, made findable</div>
-        <div class="pa"><b>Problem:</b> a mailbox so deep nothing could be found. <b>Built:</b> a sorting and auto-filing system that cleared the backlog and keeps it clean — contracted, delivered, invoiced.</div>
+        <div class="pa"><b>Problem:</b> a mailbox so deep nothing could be found. <b>Built:</b> a sorting and auto-filing system that cleared the backlog and keeps it clean. Contracted, delivered and invoiced.</div>
         <div class="res"><div class="num">300k<small>messages organized for a paying client</small></div></div>
       </div>
 
       <div class="case card">
         <div class="edge" style="background:var(--ember)"></div>
         <div class="tag e">Look sharp · Per-event media</div>
-        <div class="ttl">Next-day recap media — every single show</div>
-        <div class="pa"><b>Problem:</b> a Philadelphia music venue that needed sharp recaps with no media team. <b>Built:</b> a templated pipeline — highlight video plus a staff/performer notes PDF, same brand every time.</div>
-        <div class="res"><div class="num">~2 hrs<small>marginal time per event — half runs on Upwield's own tooling</small></div></div>
+        <div class="ttl">Next-day recap media for every show</div>
+        <div class="pa"><b>Problem:</b> a Philadelphia music venue that needed sharp recaps with no media team. <b>Built:</b> a templated pipeline that turns out a highlight video plus a staff/performer notes PDF, same brand every time.</div>
+        <div class="res"><div class="num">~2 hrs<small>marginal time per event; half runs on Upwield's own tooling</small></div></div>
       </div>
     </div>
 
@@ -333,8 +333,8 @@
   <div class="wrap">
     <div class="eyebrow">Proof</div>
     <h2 class="display" style="margin-top:8px;max-width:20ch">Three sites you can open right now.</h2>
-    <p class="lead muted" style="margin-top:14px;max-width:56ch">Built end to end — brand, copy and build.
-      Live, not mockups.</p>
+    <p class="lead muted" style="margin-top:14px;max-width:56ch">Brand, copy and build, done end to end.
+      All three are live.</p>
     <div class="terms" style="margin-top:20px">
       <div class="t-item"><span class="k">I AM MAJOR KEY</span>
         <a href="https://iammajorkey.com" target="_blank" rel="noopener">iammajorkey.com &rarr;</a></div>
@@ -350,7 +350,7 @@
 <section id="built" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="eyebrow">Built &amp; shipped</div>
-    <h2 class="display" style="margin-top:8px;max-width:19ch">Most studios show mockups. This one runs in production — open it.</h2>
+    <h2 class="display" style="margin-top:8px;max-width:19ch">Most studios show mockups. This one runs in production, so open it.</h2>
     <p class="lead muted" style="margin-top:14px;max-width:56ch">Design is half the studio. The other half is software that actually ships. A sample you can open right now:</p>
     <div class="ships">
       <a class="ship card" href="https://appforge-demo.onrender.com" target="_blank" rel="noopener">
@@ -377,8 +377,8 @@
         </picture>
       </div>
       <div class="bio">
-        <p class="lead2">Upwield is <b>Ian</b> — a Philadelphia operator who spent 14 years running operations before going all-in on building studios. The combination is the whole point: most shops hand you a designer <b>or</b> an automation person. Ian is both — which is how a three-person organization ends up looking and running like a thirty-person one. You work with the maker from first email to final file. No account managers, no handoffs, no markup on someone else's work.</p>
-        <p class="sign"><b>Ian reads every intake personally</b> — and replies within one business day.</p>
+        <p class="lead2">Upwield is <b>Ian</b>, a Philadelphia operator who spent 14 years running operations before going all-in on building studios. The combination is the whole point: most shops hand you a designer <b>or</b> an automation person. Ian is both, which is how a three-person organization ends up looking and running like a thirty-person one. You work with the maker from first email to final file. No account managers, no handoffs, no markup on someone else's work.</p>
+        <p class="sign"><b>Ian reads every intake personally</b> and replies within one business day.</p>
       </div>
     </div>
   </div>
@@ -389,7 +389,7 @@
   <div class="wrap">
     <div class="band">
       <div>
-        <h2 class="display">Where are you losing time — or looking smaller than you are?</h2>
+        <h2 class="display">Where are you losing time, or looking smaller than you are?</h2>
         <p>Tell Ian in five questions. He'll point to the fastest fix, whether that's a deck this week or an automation that saves you ten hours a month.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px">
@@ -398,8 +398,8 @@
       </div>
     </div>
     <div class="next">
-      <div class="nx"><div class="s">Step 1</div><h4>Ian reads it — himself</h4><p>Every intake goes straight to the maker. You hear back within one business day, not a queue.</p></div>
-      <div class="nx"><div class="s">Step 2</div><h4>You get a straight answer</h4><p>The fastest fix for what you sent — a deck this week, or the one automation worth building first.</p></div>
+      <div class="nx"><div class="s">Step 1</div><h4>Ian reads it himself</h4><p>Every intake goes straight to the maker, and you hear back by the next business day.</p></div>
+      <div class="nx"><div class="s">Step 2</div><h4>You get a straight answer</h4><p>The fastest fix for what you sent: a deck this week, or the one automation worth building first.</p></div>
       <div class="nx"><div class="s">Step 3</div><h4>Start small</h4><p>One concrete project, low risk. No retainer and no long contract to begin. The work earns the next thing.</p></div>
     </div>
   </div>
@@ -411,7 +411,7 @@
       <div>
         <a class="wordmark" href="index.html">upwield<span class="wedge"></span></a>
         <p style="margin-top:18px;font-family:var(--display);font-size:19px;color:var(--ink);
-                  letter-spacing:-.02em;line-height:1.35;max-width:20ch">A one-person studio — you work with the maker.</p>
+                  letter-spacing:-.02em;line-height:1.35;max-width:20ch">A one-person studio. You work directly with the maker.</p>
         <a href="intake.html" style="display:inline-flex;gap:8px;margin-top:20px;font-weight:600;color:var(--ink)">Start a project ↗</a>
       </div>
       <div>
