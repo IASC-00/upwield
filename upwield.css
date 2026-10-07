@@ -264,3 +264,14 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{
   .rise{animation:none}
   .navbar,.no-print{display:none!important}
 }
+
+/* one-pager sheets on screens: a way home + a CTA above the page, and on phones
+   let the letter-size sheet reflow instead of scrolling sideways. Print is untouched. */
+.sheet-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:8.5in;margin:18px auto 0;padding:0 16px;font-size:14.5px}
+.sheet-nav a:not(.btn){color:#16181D;font-weight:600;text-decoration:underline}
+@media screen and (max-width:860px){
+  .sheet{width:auto;min-height:0;margin:12px 0 0;padding:28px 20px 32px}
+  .sheet h1.display{font-size:34px}
+  .sheet .two,.sheet .cols,.sheet .tiles,.sheet .steps{grid-template-columns:1fr}
+  .sheet .priceband,.sheet .foot{flex-direction:column;align-items:flex-start;gap:14px}
+}

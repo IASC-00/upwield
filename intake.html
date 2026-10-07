@@ -431,6 +431,10 @@ async function send(){
   const data = new FormData(form);
   data.set('_subject', `New Upwield intake — ${data.get('name')||'someone'} (${PNAME[data.get('need')]||'—'})`);
   data.set('_replyto', data.get('email')||'');   // reply goes straight to the lead
+  if(new URLSearchParams(location.search).get('from')==='audit'){   // came from audit.html's CTA
+    data.set('entry', 'audit');
+    data.set('_subject', data.get('_subject')+' · Automation Audit');
+  }
   if(DEMO){ showSuccess('mailto'); return; }   // no Formspree id yet → prefilled email, nothing lost
   next.disabled = true; next.textContent = 'Sending…';
   try{
@@ -439,7 +443,7 @@ async function send(){
     showSuccess('sent');
   }catch(e){
     next.disabled = false; next.innerHTML = 'Send it <span class="arr">&rarr;</span>';
-    fail("Something hiccuped — email hello@upwield.com and we'll pick it up.");
+    fail("Something hiccuped and your answers didn't send. Nothing you typed is lost — give it a minute and hit Send again.");
   }
 }
 
