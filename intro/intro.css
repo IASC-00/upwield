@@ -1,0 +1,63 @@
+/* Homepage intro (see intro.js). uw-cover hides the page until the overlay exists;
+   uw-lock stops scrolling; uw-hold keeps the hero's own rise waiting until the page
+   comes up through the wedge, so it plays for the visitor instead of behind the intro. */
+html.uw-lock, html.uw-lock body { overflow: hidden; }
+html.uw-cover body::before { content: ''; position: fixed; inset: 0; z-index: 998; background: var(--paper, #050B18); }
+html.uw-hold .hero .rise { animation-play-state: paused; }
+
+.uw {
+  position: fixed; inset: 0; z-index: 999; overflow: hidden;
+  background-color: var(--paper, #050B18);
+  background-image:
+    radial-gradient(1200px 680px at 12% -8%, rgba(63,130,255,.20), transparent 62%),
+    radial-gradient(900px 560px at 92% 4%, rgba(168,197,255,.10), transparent 60%);
+}
+.uw-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.uw-skip {
+  position: absolute; z-index: 2;
+  right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom));
+  min-height: 44px; min-width: 44px; padding: 0 18px;
+  font: 600 14px/1 var(--body, Inter, system-ui, sans-serif); letter-spacing: .01em;
+  color: var(--ink-2, #C9D6EA); background: rgba(5,11,24,.55);
+  border: 1px solid rgba(255,255,255,.18); border-radius: 999px; cursor: pointer;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.uw-skip:hover { color: var(--ink, #E9F3FF); border-color: var(--beam, #3F82FF); }
+.uw-skip:focus-visible { outline: 2px solid var(--beam, #3F82FF); outline-offset: 3px; }
+
+/* 2D version */
+.uw2 { position: absolute; inset: 0; }
+.uw2-floor {
+  position: absolute; left: 6%; right: 6%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(63,130,255,.75) 30%, rgba(168,197,255,.9) 50%, rgba(63,130,255,.75) 70%, transparent);
+  box-shadow: 0 0 18px 2px rgba(63,130,255,.35);
+}
+.uw2-wedge {
+  position: absolute; display: block; overflow: hidden;
+  background: linear-gradient(115deg, var(--ember, #FF6A45) 0 58%, #E24A24 58% 100%);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  will-change: transform;
+}
+/* the beam climbing the face */
+.uw2-wedge s {
+  position: absolute; left: 0; right: 0; top: 0; height: 100%;
+  background: linear-gradient(0deg, transparent 0 40%, rgba(168,197,255,.55) 50%, transparent 60% 100%);
+}
+.uw2-mark {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  display: inline-flex; align-items: baseline; opacity: 0;
+  font-family: var(--display, Outfit, system-ui, sans-serif); font-weight: 600; letter-spacing: -.03em;
+  font-size: clamp(54px, 11vw, 120px); line-height: 1; color: var(--ink, #E9F3FF);
+}
+.uw2-mw {
+  display: inline-block; width: .62em; height: .62em; margin-left: .12em;
+  background: var(--ember, #FF6A45); clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  transform: translateY(-.04em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uw { display: none; }
+  html.uw-cover body::before { display: none; }
+  html.uw-lock, html.uw-lock body { overflow: auto; }
+  html.uw-hold .hero .rise { animation-play-state: running; }
+}

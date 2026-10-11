@@ -275,3 +275,17 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{
   .sheet .two,.sheet .cols,.sheet .tiles,.sheet .steps{grid-template-columns:1fr}
   .sheet .priceband,.sheet .foot{flex-direction:column;align-items:flex-start;gap:14px}
 }
+
+/* ---------- touch targets (11 Oct 2026) ----------
+   On phones and tablets every link and button gets a tap area of at least 44x44px:
+   an invisible ::before centred on it, so nothing on the page moves. (::after is
+   left alone: the nav uses it for the current-page underline.) Desktop is untouched. */
+@media (max-width:1023px){
+  .wordmark, .navbar .links a, .terms .t-item a, p.note a, .foot a.cta, a.go, a.samplelink,
+  .sheet-nav a:not(.btn), .site-foot .cols a:not(.wordmark), .wnav .back, .wnav .btn{position:relative}
+  .wordmark::before, .navbar .links a::before, .terms .t-item a::before, p.note a::before, .foot a.cta::before,
+  a.go::before, a.samplelink::before, .sheet-nav a:not(.btn)::before, .site-foot .cols a:not(.wordmark)::before,
+  .wnav .back::before, .wnav .btn::before{
+    content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:max(100%,44px);height:max(100%,44px);z-index:1}
+}
