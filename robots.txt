@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://upwield.com/sitemap.xml
+Sitemap: https://www.upwield.com/sitemap.xml
