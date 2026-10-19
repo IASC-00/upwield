@@ -1,20 +1,48 @@
 /* Homepage intro (see intro.js). uw-cover hides the page until the overlay exists;
-   uw-lock stops scrolling; uw-hold keeps the hero's own rise waiting until the page
-   comes up through the wedge, so it plays for the visitor instead of behind the intro. */
+   uw-lock stops scrolling (the gutter stays, so the header does not shift when it ends);
+   uw-hold keeps the hero's own rise waiting until the page fades in; uw-mark hides the
+   header wordmark until the intro's lockup lands on it. */
+html.uw-lock { scrollbar-gutter: stable; }
 html.uw-lock, html.uw-lock body { overflow: hidden; }
 html.uw-cover body::before { content: ''; position: fixed; inset: 0; z-index: 998; background: var(--paper, #050B18); }
 html.uw-hold .hero .rise { animation-play-state: paused; }
+html.uw-mark .navbar .wordmark { opacity: 0; }
 
-.uw {
-  position: fixed; inset: 0; z-index: 999; overflow: hidden;
+.uw { position: fixed; inset: 0; z-index: 999; overflow: hidden; }
+.uw-bg {
+  position: absolute; inset: 0;
   background-color: var(--paper, #050B18);
   background-image:
     radial-gradient(1200px 680px at 12% -8%, rgba(63,130,255,.20), transparent 62%),
     radial-gradient(900px 560px at 92% 4%, rgba(168,197,255,.10), transparent 60%);
 }
 .uw-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+/* The lockup (built by intro3d.js): the header's wordmark, set the same way. */
+.uw-lk {
+  position: absolute; left: 0; top: 0; z-index: 2; pointer-events: none;
+  font-family: var(--display, Outfit, system-ui, sans-serif); font-weight: 600; letter-spacing: -.03em; line-height: 1;
+  color: var(--ink, #E9F3FF); white-space: nowrap;
+}
+.uw-lk-row { position: absolute; left: 0; top: 0; display: inline-flex; align-items: baseline; }
+.uw-lk-base .uw-lk-t { color: transparent; }
+.uw-lk-l { opacity: 0; }
+.uw-lk-l .uw-lk-t span { color: transparent; }
+.uw-lk-l .uw-lk-t span.on { color: var(--ink, #E9F3FF); }
+.uw-lk-sheen .uw-lk-t {
+  color: transparent; opacity: .9;
+  background: linear-gradient(100deg, transparent 0 44%, rgba(255,255,255,.95) 50%, transparent 56% 100%) no-repeat;
+  background-size: 100% 100%; -webkit-background-clip: text; background-clip: text;
+}
+.uw-lk-w {
+  position: relative; display: inline-block; width: .62em; height: .62em; margin-left: .12em; overflow: hidden; opacity: 0;
+  background: var(--ember, #FF6A45); clip-path: polygon(50% 0, 100% 100%, 0 100%); transform: translateY(-.04em);
+}
+.uw-lk-w s {
+  position: absolute; inset: 0; transform: translateX(calc(var(--sw, -2) * 100%));
+  background: linear-gradient(100deg, transparent 30%, rgba(255,232,222,.85) 50%, transparent 70%);
+}
 .uw-skip {
-  position: absolute; z-index: 2;
+  position: absolute; z-index: 3;
   right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom));
   min-height: 44px; min-width: 44px; padding: 0 18px;
   font: 600 14px/1 var(--body, Inter, system-ui, sans-serif); letter-spacing: .01em;
@@ -27,32 +55,36 @@ html.uw-hold .hero .rise { animation-play-state: paused; }
 
 /* 2D version */
 .uw2 { position: absolute; inset: 0; }
+.uw2 > i { position: absolute; display: block; font-style: normal; }
 .uw2-floor {
-  position: absolute; left: 6%; right: 6%; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(63,130,255,.75) 30%, rgba(168,197,255,.9) 50%, rgba(63,130,255,.75) 70%, transparent);
-  box-shadow: 0 0 18px 2px rgba(63,130,255,.35);
+  left: 4%; right: 4%; height: 2px; margin-top: -1px;
+  background: linear-gradient(90deg, transparent, rgba(63,130,255,.7) 25%, #FFE3D8 50%, rgba(63,130,255,.7) 75%, transparent);
+  box-shadow: 0 0 22px 3px rgba(255,106,69,.35), 0 0 60px 8px rgba(63,130,255,.25);
 }
-.uw2-wedge {
-  position: absolute; display: block; overflow: hidden;
-  background: linear-gradient(115deg, var(--ember, #FF6A45) 0 58%, #E24A24 58% 100%);
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  will-change: transform;
+.uw2-ring {
+  left: 50%; width: 260vmax; height: 36vmax; border-radius: 50%;
+  border: 3px solid rgba(255,227,216,.9);
+  box-shadow: 0 0 40px 6px rgba(255,106,69,.5), inset 0 0 40px 6px rgba(63,130,255,.35);
 }
-/* the beam climbing the face */
-.uw2-wedge s {
-  position: absolute; left: 0; right: 0; top: 0; height: 100%;
-  background: linear-gradient(0deg, transparent 0 40%, rgba(168,197,255,.55) 50%, transparent 60% 100%);
+.uw2-flash {
+  inset: 0; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 75%, rgba(255,236,224,.95), rgba(255,106,69,.45) 38%, transparent 80%);
 }
 .uw2-mark {
-  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
-  display: inline-flex; align-items: baseline; opacity: 0;
+  position: absolute; display: inline-flex; align-items: baseline; white-space: nowrap;
   font-family: var(--display, Outfit, system-ui, sans-serif); font-weight: 600; letter-spacing: -.03em;
   font-size: clamp(54px, 11vw, 120px); line-height: 1; color: var(--ink, #E9F3FF);
 }
+.uw2-txt i { display: inline-block; font-style: normal; }
 .uw2-mw {
-  display: inline-block; width: .62em; height: .62em; margin-left: .12em;
-  background: var(--ember, #FF6A45); clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  transform: translateY(-.04em);
+  position: relative; display: inline-block; width: .62em; height: .62em; margin-left: .12em; overflow: hidden;
+  background: linear-gradient(160deg, #FF8A66, var(--ember, #FF6A45) 45%, #E24A24);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  translate: 0 -.04em; will-change: transform;
+}
+.uw2-mw s {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255,240,230,.75), transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -60,4 +92,5 @@ html.uw-hold .hero .rise { animation-play-state: paused; }
   html.uw-cover body::before { display: none; }
   html.uw-lock, html.uw-lock body { overflow: auto; }
   html.uw-hold .hero .rise { animation-play-state: running; }
+  html.uw-mark .navbar .wordmark { opacity: 1; }
 }
